@@ -299,11 +299,6 @@ export class KiroExecutor extends BaseExecutor {
       hasToolCalls: false,
       toolCallIndex: 0,
       seenToolIds: new Map(),
-      // Track per-tool-call argument fragments so we can validate JSON before
-      // emitting finish_reason="tool_calls". If args are incomplete we degrade
-      // gracefully to finish_reason="stop" — clients prefer a clean stop over
-      // a malformed tool call.
-      toolArgsBuffer: new Map(),
       totalContentLength: 0,
       contextUsagePercentage: 0,
       hasContextUsage: false,
@@ -339,16 +334,6 @@ export class KiroExecutor extends BaseExecutor {
       };
     };
 
-    const allToolArgsValid = () => {
-      for (const args of state.toolArgsBuffer.values()) {
-        const trimmed = (args || "").trim();
-        if (!trimmed) return false;
-        try { JSON.parse(trimmed); }
-        catch { return false; }
-      }
-      return true;
-    };
-
     const emitFinish = (controller, { force = false } = {}) => {
       if (state.finishEmitted) return;
       const hasMeteringPair = state.hasMeteringEvent && state.hasContextUsage;
@@ -357,11 +342,13 @@ export class KiroExecutor extends BaseExecutor {
 
       state.finishEmitted = true;
 
-      // If we claim tool_calls but the args are not valid JSON, the upstream
-      // stream was truncated mid-call. Emit "stop" instead so Claude CLI / any
-      // OpenAI client doesn't crash on JSON.parse of partial arguments.
-      const argsValid = !state.hasToolCalls || allToolArgsValid();
-      const finishReason = state.hasToolCalls && argsValid ? "tool_calls" : "stop";
+      // finish_reason MUST match what we already streamed. By the time we get
+      // here, any tool_call deltas have already been sent downstream and the
+      // OpenAI→Claude translator has already opened tool_use content blocks —
+      // we cannot retroactively turn those into a plain "stop" without producing
+      // a self-contradictory message (tool_use blocks + end_turn), which breaks
+      // Claude Code's agentic loop. So: if we saw tool calls, finish as tool_calls.
+      const finishReason = state.hasToolCalls ? "tool_calls" : "stop";
 
       const finishChunk = {
         id: responseId,
@@ -494,7 +481,6 @@ export class KiroExecutor extends BaseExecutor {
             if (isNewTool) {
               toolIndex = state.toolCallIndex++;
               state.seenToolIds.set(toolCallId, toolIndex);
-              state.toolArgsBuffer.set(toolCallId, "");
 
               writeChunk(controller, {
                 id: responseId,
@@ -529,10 +515,6 @@ export class KiroExecutor extends BaseExecutor {
               } else {
                 continue;
               }
-              state.toolArgsBuffer.set(
-                toolCallId,
-                (state.toolArgsBuffer.get(toolCallId) || "") + argumentsStr,
-              );
 
               writeChunk(controller, {
                 id: responseId,
