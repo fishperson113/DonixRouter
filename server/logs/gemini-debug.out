@@ -1,0 +1,7 @@
+[Proxy] No local proxy detected — direct connection
+[TLS] Using native (rustls) transport
+[TLS] Transport: native (impersonate=false)
+[Routes] ✓ /api/auth/status [GET]
+[Routes] ✓ /api/usage/quota-stream [GET]
+[Routes] Mounted 129 routes (0 skipped)
+[DB] Driver: node:sqlite | file: C:\Users\mdong\AppData\Roaming\DonixRouter\db\data.sqlite

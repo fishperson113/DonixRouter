@@ -1,0 +1,33 @@
+<svg width="980" height="220" viewBox="0 0 980 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="980" y2="220" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1020"/>
+      <stop offset="0.5" stop-color="#111827"/>
+      <stop offset="1" stop-color="#172554"/>
+    </linearGradient>
+    <linearGradient id="line" x1="120" y1="42" x2="860" y2="178" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6EE7F9"/>
+      <stop offset="0.52" stop-color="#A78BFA"/>
+      <stop offset="1" stop-color="#34D399"/>
+    </linearGradient>
+  </defs>
+  <rect width="980" height="220" rx="28" fill="url(#bg)"/>
+  <rect x="1.5" y="1.5" width="977" height="217" rx="26.5" stroke="url(#line)" stroke-opacity="0.55" stroke-width="3"/>
+  <circle cx="114" cy="110" r="46" fill="#121A33" stroke="#6EE7F9" stroke-width="6"/>
+  <path d="M91 77C91 72.5817 94.5817 69 99 69H115C137.091 69 155 86.9086 155 109C155 131.091 137.091 149 115 149H99C94.5817 149 91 145.418 91 141V77Z" fill="#0B1020"/>
+  <path d="M107 91H116C126.493 91 135 99.5066 135 110C135 120.493 126.493 129 116 129H107V91Z" fill="#6EE7F9"/>
+  <circle cx="159" cy="76" r="7" fill="#A78BFA"/>
+  <circle cx="169" cy="110" r="7" fill="#34D399"/>
+  <circle cx="159" cy="144" r="7" fill="#F59E0B"/>
+  <path d="M139 96L155 80" stroke="#A78BFA" stroke-width="4" stroke-linecap="round"/>
+  <path d="M139 110H163" stroke="#34D399" stroke-width="4" stroke-linecap="round"/>
+  <path d="M139 124L155 140" stroke="#F59E0B" stroke-width="4" stroke-linecap="round"/>
+  <text x="220" y="102" fill="#F8FAFC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="54" font-weight="800" letter-spacing="0">DonixRouter</text>
+  <text x="224" y="139" fill="#CBD5E1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" font-weight="500" letter-spacing="0">Local AI gateway for coding tools, routing, and OpenAI-compatible APIs</text>
+  <rect x="224" y="158" width="147" height="30" rx="15" fill="#0F766E" fill-opacity="0.28" stroke="#2DD4BF" stroke-opacity="0.6"/>
+  <text x="244" y="179" fill="#CCFBF1" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700">LOCAL FIRST</text>
+  <rect x="386" y="158" width="152" height="30" rx="15" fill="#312E81" fill-opacity="0.32" stroke="#A78BFA" stroke-opacity="0.6"/>
+  <text x="406" y="179" fill="#EDE9FE" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700">MULTI PROVIDER</text>
+  <rect x="553" y="158" width="150" height="30" rx="15" fill="#1E3A8A" fill-opacity="0.32" stroke="#60A5FA" stroke-opacity="0.6"/>
+  <text x="573" y="179" fill="#DBEAFE" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700">STREAM READY</text>
+</svg>

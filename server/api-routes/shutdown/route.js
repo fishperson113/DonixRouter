@@ -1,0 +1,23 @@
+import { NextResponse } from "#adapter/nextShim.js";
+
+export async function POST(request) {
+  if (process.env.NODE_ENV === "production") {
+    return NextResponse.json({ success: false, message: "Not allowed in production" }, { status: 403 });
+  }
+
+  const secret = process.env.SHUTDOWN_SECRET;
+  const authorization = request.headers.get("authorization");
+
+  if (!secret || authorization !== `Bearer ${secret}`) {
+    return NextResponse.json({ success: false, message: "Unauthorized" }, { status: 401 });
+  }
+
+  const response = NextResponse.json({ success: true, message: "Shutting down..." });
+
+  setTimeout(() => {
+    process.exit(0);
+  }, 500);
+
+  return response;
+}
+

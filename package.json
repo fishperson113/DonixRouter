@@ -1,0 +1,77 @@
+{
+  "name": "donixrouter",
+  "version": "1.0.0",
+  "description": "Local AI router and dashboard for OpenAI-compatible coding tool workflows.",
+  "private": true,
+  "license": "MIT",
+  "author": "dongp06",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dongp06/DonixRouter.git"
+  },
+  "homepage": "https://github.com/dongp06/DonixRouter#readme",
+  "bugs": {
+    "url": "https://github.com/dongp06/DonixRouter/issues"
+  },
+  "main": "launcher.js",
+  "bin": {
+    "donixrouter": "./launcher.js"
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=10.0.0"
+  },
+  "keywords": [
+    "ai",
+    "ai-router",
+    "openai-compatible",
+    "codex",
+    "responses-api",
+    "chat-completions",
+    "hono",
+    "vite",
+    "react",
+    "local-first",
+    "developer-tools"
+  ],
+  "files": [
+    "server",
+    "web/dist",
+    "web/index.html",
+    "web/package.json",
+    "web/vite.config.js",
+    "shared",
+    "public",
+    "config",
+    "scripts",
+    "images",
+    "launcher.js",
+    "build.bat",
+    "start.bat",
+    "start.sh",
+    "README.md",
+    "LICENSE",
+    ".env.example"
+  ],
+  "scripts": {
+    "dev": "node server/index.js",
+    "dev:web": "cd web && npm run dev",
+    "dev:all": "concurrently -k -n server,web -c blue,magenta \"node server/index.js\" \"cd web && npm run dev\"",
+    "build:web": "cd web && npm run build",
+    "build": "npm run build:web",
+    "start": "node launcher.js",
+    "start:server": "node server/index.js",
+    "start:tray": "node launcher.js --tray",
+    "start:open": "node launcher.js --open",
+    "install:all": "npm install && cd server && npm install && cd ../web && npm install",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "open": "^11.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "eslint": "^9.18.0"
+  }
+}

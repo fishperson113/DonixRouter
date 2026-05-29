@@ -1,0 +1,1080 @@
+[Proxy] No local proxy detected — direct connection
+[TLS] Using native (rustls) transport
+[TLS] Transport: native (impersonate=false)
+[Routes] ✓ /api/auth/status [GET]
+[Routes] ✓ /api/usage/quota-stream [GET]
+[Routes] Mounted 128 routes (0 skipped)
+
+  DonixRouter v1.0.0
+  Local:   http://localhost:20128
+  Network: http://192.168.3.112:20128
+
+[DB] Driver: node:sqlite | file: C:\Users\mdong\AppData\Roaming\DonixRouter\db\data.sqlite
+<-- GET /api/usage/quota-stream
+--> GET /api/usage/quota-stream [32m200[0m 4ms
+<-- GET /api/usage/stream?period=30d
+--> GET /api/usage/stream?period=30d [32m200[0m 2ms
+<-- GET /api/usage/chart?range=30d&granularity=hourly&period=30d
+--> GET /api/usage/chart?range=30d&granularity=hourly&period=30d [32m200[0m 80ms
+<-- POST /v1/responses
+<-- POST /api/v1/responses
+[36m[00:30:28] 📥 POST /api/v1/responses | gpt-5.4 | 289 msgs | 11 tools | effort=xhigh[0m
+[00:30:28] 🔍 [AUTH] API Key: sk_9...uter
+[00:30:28] ℹ️  [ROUTING] gpt-5.4 → codex/gpt-5.4
+[00:30:28] 🔍 [AUTH] codex | total connections: 10, excludeIds: none, model: gpt-5.4
+[00:30:28] 🔍 [AUTH] codex | available: 6/10
+[00:30:28] 🔍 [AUTH]   → 20e2684a |  modelLocked(gpt-5.4) until 2026-05-13T17:39:38.555Z
+[00:30:28] 🔍 [AUTH]   → df92be61 |  modelLocked(gpt-5.4) until 2026-05-13T17:39:31.801Z
+[00:30:28] 🔍 [AUTH]   → 209f8c0a |  modelLocked(gpt-5.4) until 2026-05-13T17:39:34.196Z
+[00:30:28] 🔍 [AUTH]   → d8cdb1d4 |  modelLocked(gpt-5.4) until 2026-05-13T17:39:36.539Z
+[00:30:28] ℹ️  [AUTH] [32mUsing codex account: minhdong.contact@gmail.com[0m
+[00:30:28] 🔍 [FORMAT] openai-responses → openai-responses | stream=true
+[RTK] saved 23796B / 539454B (4.4%) via [grep,dedup-log,git-status] hits=19
+[00:30:28] [PENDING] START | provider=codex | model=gpt-5.4
+[00:30:28] 🔍 [REQUEST] CODEX | gpt-5.4 | 289 msgs
+<-- GET /api/usage/chart?range=30d&granularity=hourly&period=30d
+--> GET /api/usage/chart?range=30d&granularity=hourly&period=30d [32m200[0m 75ms
+[00:30:29] 🔍 [WARMUP] session cookies established for a9be1da5
+[00:30:31] 🔍 [QUOTA] passive: primary=65% secondary=0%
+--> POST /api/v1/responses [32m200[0m 3s
+--> POST /v1/responses [32m200[0m 3s
+[00:30:43] [PENDING] END | provider=codex | model=gpt-5.4
+[00:30:43] 📊 [32m[USAGE] CODEX | in=180568 | out=395 | account=a9be1da5...[0m | cache_read=9088 | reasoning=33
+[32m[00:30:43] 📊 [STREAM USAGE] CODEX | in=180568 | out=395 | account=a9be1da5...[0m
+[00:30:43] 🔍 [AFFINITY] recorded 93431711 → conn=a9be1da5
+[00:30:43] 🌊 [STREAM] CODEX | gpt-5.4 | 14374ms | complete
+<-- GET /api/usage/chart?range=30d&granularity=hourly&period=30d
+--> GET /api/usage/chart?range=30d&granularity=hourly&period=30d [32m200[0m 68ms
+<-- POST /v1/responses
+<-- POST /api/v1/responses
+[36m[00:30:44] 📥 POST /api/v1/responses | gpt-5.4 | 297 msgs | 11 tools | effort=xhigh[0m
+[00:30:44] 🔍 [AUTH] API Key: sk_9...uter
+[00:30:44] ℹ️  [ROUTING] gpt-5.4 → codex/gpt-5.4
+[00:30:44] 🔍 [AUTH] codex | total connections: 10, excludeIds: none, model: gpt-5.4
+[00:30:44] 🔍 [AUTH] codex | available: 6/10
+[00:30:44] 🔍 [AUTH]   → 20e2684a |  modelLocked(gpt-5.4) until 2026-05-13T17:39:38.555Z
+[00:30:44] 🔍 [AUTH]   → df92be61 |  modelLocked(gpt-5.4) until 2026-05-13T17:39:31.801Z
+[00:30:44] 🔍 [AUTH]   → 209f8c0a |  modelLocked(gpt-5.4) until 2026-05-13T17:39:34.196Z
+[00:30:44] 🔍 [AUTH]   → d8cdb1d4 |  modelLocked(gpt-5.4) until 2026-05-13T17:39:36.539Z
+[00:30:44] ℹ️  [AUTH] [32mUsing codex account: Account 2[0m
+[00:30:44] 🔍 [FORMAT] openai-responses → openai-responses | stream=true
+[RTK] saved 23803B / 540317B (4.4%) via [grep,dedup-log,git-status] hits=20
+[00:30:44] [PENDING] START | provider=codex | model=gpt-5.4
+[00:30:44] 🔍 [REQUEST] CODEX | gpt-5.4 | 297 msgs
+<-- GET /api/usage/chart?range=30d&granularity=hourly&period=30d
+--> GET /api/usage/chart?range=30d&granularity=hourly&period=30d [32m200[0m 56ms
+[00:30:44] 🔍 [WARMUP] session cookies established for 7d25f119
+[00:30:46] 🔍 [QUOTA] passive: primary=1% secondary=100%
+--> POST /api/v1/responses [32m200[0m 3s
+--> POST /v1/responses [32m200[0m 3s
+[00:30:53] [PENDING] END | provider=codex | model=gpt-5.4
+[00:30:53] 📊 [32m[USAGE] CODEX | in=181278 | out=200 | account=7d25f119...[0m | cache_read=6016 | reasoning=69
+[32m[00:30:53] 📊 [STREAM USAGE] CODEX | in=181278 | out=200 | account=7d25f119...[0m
+[00:30:53] 🔍 [AFFINITY] recorded 93446673 → conn=7d25f119
+[00:30:53] 🌊 [STREAM] CODEX | gpt-5.4 | 9151ms | complete
+<-- GET /api/usage/chart?range=30d&granularity=hourly&period=30d
+--> GET /api/usage/chart?range=30d&granularity=hourly&period=30d [32m200[0m 112ms
+<-- GET /dashboard/usage
+--> GET /dashboard/usage [32m200[0m 3ms
+<-- GET /assets/index-NYTn_BGT.js
+--> GET /assets/index-NYTn_BGT.js [32m200[0m 1ms
+<-- GET /assets/index-C45TsFMC.css
+--> GET /assets/index-C45TsFMC.css [32m200[0m 1ms
+<-- GET /api/models
+--> GET /api/models [32m200[0m 2ms
+<-- GET /logo.png
+--> GET /logo.png [32m200[0m 1ms
+<-- GET /assets/page-C6R9pshs.js
+--> GET /assets/page-C6R9pshs.js [32m200[0m 1ms
+<-- GET /assets/Loading-HlSKhJAW.js
+--> GET /assets/Loading-HlSKhJAW.js [32m200[0m 0ms
+<-- GET /assets/material-symbols-outlined-EtC4Bbiy.woff2
+--> GET /assets/material-symbols-outlined-EtC4Bbiy.woff2 [32m200[0m 1ms
+<-- GET /assets/RequestLogger-Yr4bhc93.js
+--> GET /assets/RequestLogger-Yr4bhc93.js [32m200[0m 1ms
+<-- GET /api/settings
+--> GET /api/settings [32m200[0m 1ms
+<-- GET /api/version
+<-- GET /api/auth/status
+--> GET /api/auth/status [32m200[0m 1ms
+<-- GET /i18n/literals/vi.json
+--> GET /i18n/literals/vi.json [32m200[0m 0ms
+<-- GET /favicon.svg
+--> GET /favicon.svg [32m200[0m 1ms
+<-- GET /api/settings
+--> GET /api/settings [32m200[0m 0ms
+<-- GET /i18n/literals/vi.json
+--> GET /i18n/literals/vi.json [32m200[0m 0ms
+--> GET /api/version [32m200[0m 199ms
+<-- GET /api/version
+<-- GET /api/providers
+--> GET /api/providers [32m200[0m 1ms
+<-- GET /api/usage/stats?period=7d
+--> GET /api/usage/stats?period=7d [32m200[0m 37ms
+<-- GET /api/usage/stream?period=7d
+--> GET /api/usage/stream?period=7d [32m200[0m 0ms
+--> GET /api/version [32m200[0m 111ms
+<-- GET /providers/gemini-cli.png
+--> GET /providers/gemini-cli.png [32m200[0m 1ms
+<-- GET /providers/codex.png
+--> GET /providers/codex.png [32m200[0m 0ms
+<-- GET /providers/github.png
+--> GET /providers/github.png [32m200[0m 0ms
+<-- GET /providers/gemini.png
+--> GET /providers/gemini.png [32m200[0m 1ms
+<-- GET /providers/kilocode.png
+--> GET /providers/kilocode.png [32m200[0m 1ms
+<-- GET /providers/opencode.png
+--> GET /providers/opencode.png [32m200[0m 1ms
+<-- GET /api/usage/chart?range=7d&granularity=hourly&period=7d
+--> GET /api/usage/chart?range=7d&granularity=hourly&period=7d [32m200[0m 31ms
+<-- GET /api/usage/chart?range=7d&granularity=hourly&period=7d
+--> GET /api/usage/chart?range=7d&granularity=hourly&period=7d [32m200[0m 30ms
+<-- POST /v1beta/models/gemini-2.5-flash-lite:generateContent
+<-- POST /api/v1beta/models/gemini-2.5-flash-lite:generateContent
+[36m[00:31:32] 📥 POST /api/v1beta/models/gemini-2.5-flash-lite:generateContent | gemini-2.5-flash-lite | 1 msgs[0m
+[00:31:32] 🔍 [AUTH] No API key provided (local mode)
+[00:31:32] ℹ️  [ROUTING] gemini-2.5-flash-lite → gemini/gemini-2.5-flash-lite
+[00:31:32] 🔍 [AUTH] gemini | total connections: 2, excludeIds: none, model: gemini-2.5-flash-lite
+[00:31:32] 🔍 [AUTH] gemini | available: 2/2
+[00:31:32] ℹ️  [AUTH] [32mUsing gemini account: key2[0m
+[00:31:32] 🔍 [FORMAT] openai → gemini | stream=false
+[00:31:32] [PENDING] START | provider=gemini | model=gemini-2.5-flash-lite
+[00:31:32] 🔍 [REQUEST] GEMINI | gemini-2.5-flash-lite | 1 msgs
+<-- GET /api/usage/chart?range=7d&granularity=hourly&period=7d
+--> GET /api/usage/chart?range=7d&granularity=hourly&period=7d [32m200[0m 19ms
+[00:31:38] [PENDING] END | provider=gemini | model=gemini-2.5-flash-lite
+[32m[00:31:38] 📊 [USAGE] GEMINI | in=183 | out=6 | account=2d73106b...[0m
+[00:31:38] 🌊 [STREAM] GEMINI | gemini-2.5-flash-lite | 6621ms | complete
+--> POST /api/v1beta/models/gemini-2.5-flash-lite:generateContent [32m200[0m 7s
+--> POST /v1beta/models/gemini-2.5-flash-lite:generateContent [32m200[0m 7s
+<-- GET /api/usage/chart?range=7d&granularity=hourly&period=7d
+--> GET /api/usage/chart?range=7d&granularity=hourly&period=7d [32m200[0m 16ms
+<-- GET /api/usage/chart?range=7d&granularity=hourly&period=7d
+--> GET /api/usage/chart?range=7d&granularity=hourly&period=7d [32m200[0m 21ms
+<-- POST /v1beta/models/gc/gemini-3-flash-preview:streamGenerateContent?alt=sse
+<-- POST /api/v1beta/models/gc/gemini-3-flash-preview:streamGenerateContent?alt=sse
+[36m[00:31:57] 📥 POST /api/v1beta/models/gc/gemini-3-flash-preview:streamGenerateContent | gc/gemini-3-flash-preview | 3 msgs | 16 tools[0m
+[00:31:57] 🔍 [AUTH] No API key provided (local mode)
+[00:31:57] ℹ️  [ROUTING] gc/gemini-3-flash-preview → gemini-cli/gemini-3-flash-preview
+[00:31:57] 🔍 [AUTH] gemini-cli | total connections: 3, excludeIds: none, model: gemini-3-flash-preview
+[00:31:57] 🔍 [AUTH] gemini-cli | available: 3/3
+[00:31:57] ℹ️  [AUTH] [32mUsing gemini-cli account: dongdz.profile@gmail.com[0m
+[00:31:57] 🔍 [FORMAT] openai → gemini-cli | stream=true
+[00:31:57] [PENDING] START | provider=gemini-cli | model=gemini-3-flash-preview
+[00:31:57] 🔍 [REQUEST] GEMINI-CLI | gemini-3-flash-preview | 2 msgs
+<-- GET /api/usage/chart?range=7d&granularity=hourly&period=7d
+--> GET /api/usage/chart?range=7d&granularity=hourly&period=7d [32m200[0m 14ms
+[00:31:57] [PENDING] END (ERROR) | provider=gemini-cli | model=gemini-3-flash-preview
+[31m[ERROR] [429]: {
+  "error": {
+    "code": 429,
+    "message": "No capacity available for model gemini-3-flash-preview on the server",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+        "reason": "MODEL_CAPACITY_EXHAUSTED",
+        "domain": "cloudcode-pa.googleapis.com",
+        "metadata": {
+          "model": "gemini-3-flash-preview"
+        }
+      }
+    ]
+  }
+}
+[0m
+[00:31:57] 🔍 [AUTH] gemini-cli | total connections: 3, excludeIds: 84742394-3929-4556-abe1-be594638f30f, model: gemini-3-flash-preview
+[00:31:57] 🔍 [AUTH] gemini-cli | available: 2/3
+[00:31:57] 🔍 [AUTH]   → 84742394 | excluded modelLocked(gemini-3-flash-preview) until 2026-05-13T17:31:59.935Z
+[00:31:57] ℹ️  [AUTH] [32mUsing gemini-cli account: mdong7106@gmail.com[0m
+[00:31:57] 🔍 [FORMAT] openai → gemini-cli | stream=true
+[00:31:57] [PENDING] START | provider=gemini-cli | model=gemini-3-flash-preview
+[00:31:57] 🔍 [REQUEST] GEMINI-CLI | gemini-3-flash-preview | 2 msgs
+<-- GET /api/usage/chart?range=7d&granularity=hourly&period=7d
+--> GET /api/usage/chart?range=7d&granularity=hourly&period=7d [32m200[0m 18ms
+<-- GET /api/usage/chart?range=7d&granularity=hourly&period=7d
+--> GET /api/usage/chart?range=7d&granularity=hourly&period=7d [32m200[0m 17ms
+[00:31:58] [PENDING] END (ERROR) | provider=gemini-cli | model=gemini-3-flash-preview
+[31m[ERROR] [429]: {
+  "error": {
+    "code": 429,
+    "message": "No capacity available for model gemini-3-flash-preview on the server",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+        "reason": "MODEL_CAPACITY_EXHAUSTED",
+        "domain": "cloudcode-pa.googleapis.com",
+        "metadata": {
+          "model": "gemini-3-flash-preview"
+        }
+      }
+    ]
+  }
+}
+[0m
+[00:31:58] 🔍 [AUTH] gemini-cli | total connections: 3, excludeIds: 84742394-3929-4556-abe1-be594638f30f,df76423d-5a1c-4eda-afdb-6fc27ba0d20d, model: gemini-3-flash-preview
+[00:31:58] 🔍 [AUTH] gemini-cli | available: 1/3
+[00:31:58] 🔍 [AUTH]   → df76423d | excluded modelLocked(gemini-3-flash-preview) until 2026-05-13T17:32:00.664Z
+[00:31:58] 🔍 [AUTH]   → 84742394 | excluded modelLocked(gemini-3-flash-preview) until 2026-05-13T17:31:59.935Z
+[00:31:58] ℹ️  [AUTH] [32mUsing gemini-cli account: minhdong.contact@gmail.com[0m
+[00:31:58] 🔍 [FORMAT] openai → gemini-cli | stream=true
+[00:31:58] [PENDING] START | provider=gemini-cli | model=gemini-3-flash-preview
+[00:31:58] 🔍 [REQUEST] GEMINI-CLI | gemini-3-flash-preview | 2 msgs
+<-- GET /api/usage/chart?range=7d&granularity=hourly&period=7d
+--> GET /api/usage/chart?range=7d&granularity=hourly&period=7d [32m200[0m 19ms
+<-- GET /api/usage/chart?range=7d&granularity=hourly&period=7d
+--> GET /api/usage/chart?range=7d&granularity=hourly&period=7d [32m200[0m 15ms
+--> POST /api/v1beta/models/gc/gemini-3-flash-preview:streamGenerateContent?alt=sse [32m200[0m 5s
+--> POST /v1beta/models/gc/gemini-3-flash-preview:streamGenerateContent?alt=sse [32m200[0m 5s
+[00:32:01] [PENDING] END | provider=gemini-cli | model=gemini-3-flash-preview
+[00:32:01] 📊 [32m[USAGE] GEMINI-CLI | in=11679 | out=194 | account=7ba42d2d...[0m | cache_read=7871
+[32m[00:32:01] 📊 [STREAM USAGE] GEMINI-CLI | in=11679 | out=194 | account=7ba42d2d...[0m
+[00:32:01] 🌊 [STREAM] GEMINI-CLI | gemini-3-flash-preview | 3099ms | complete
+<-- GET /api/usage/chart?range=7d&granularity=hourly&period=7d
+--> GET /api/usage/chart?range=7d&granularity=hourly&period=7d [32m200[0m 19ms
+<-- POST /v1beta/models/gc/gemini-3-flash-preview:streamGenerateContent?alt=sse
+<-- POST /api/v1beta/models/gc/gemini-3-flash-preview:streamGenerateContent?alt=sse
+[36m[00:32:12] 📥 POST /api/v1beta/models/gc/gemini-3-flash-preview:streamGenerateContent | gc/gemini-3-flash-preview | 5 msgs | 16 tools[0m
+[00:32:12] 🔍 [AUTH] No API key provided (local mode)
+[00:32:12] ℹ️  [ROUTING] gc/gemini-3-flash-preview → gemini-cli/gemini-3-flash-preview
+[00:32:12] 🔍 [AUTH] gemini-cli | total connections: 3, excludeIds: none, model: gemini-3-flash-preview
+[00:32:12] 🔍 [AUTH] gemini-cli | available: 3/3
+[00:32:12] ℹ️  [AUTH] [32mUsing gemini-cli account: dongdz.profile@gmail.com[0m
+[00:32:12] 🔍 [FORMAT] openai → gemini-cli | stream=true
+[00:32:12] [PENDING] START | provider=gemini-cli | model=gemini-3-flash-preview
+[00:32:12] 🔍 [REQUEST] GEMINI-CLI | gemini-3-flash-preview | 4 msgs
+<-- GET /api/usage/chart?range=7d&granularity=hourly&period=7d
+--> GET /api/usage/chart?range=7d&granularity=hourly&period=7d [32m200[0m 18ms
+--> POST /api/v1beta/models/gc/gemini-3-flash-preview:streamGenerateContent?alt=sse [32m200[0m 2s
+--> POST /v1beta/models/gc/gemini-3-flash-preview:streamGenerateContent?alt=sse [32m200[0m 2s
+[00:32:14] [PENDING] END | provider=gemini-cli | model=gemini-3-flash-preview
+[00:32:14] 📊 [32m[USAGE] GEMINI-CLI | in=11700 | out=71 | account=84742394...[0m
+[32m[00:32:14] 📊 [STREAM USAGE] GEMINI-CLI | in=11700 | out=71 | account=84742394...[0m
+[00:32:14] 🌊 [STREAM] GEMINI-CLI | gemini-3-flash-preview | 2034ms | complete
+<-- GET /api/usage/chart?range=7d&granularity=hourly&period=7d
+--> GET /api/usage/chart?range=7d&granularity=hourly&period=7d [32m200[0m 20ms
+<-- POST /v1beta/models/gemini-3-flash-preview:generateContent
+<-- POST /api/v1beta/models/gemini-3-flash-preview:generateContent
+[36m[00:32:14] 📥 POST /api/v1beta/models/gemini-3-flash-preview:generateContent | gemini-3-flash-preview | 2 msgs[0m
+[00:32:14] 🔍 [AUTH] No API key provided (local mode)
+[00:32:14] ℹ️  [ROUTING] gemini-3-flash-preview → gemini/gemini-3-flash-preview
+[00:32:14] 🔍 [AUTH] gemini | total connections: 2, excludeIds: none, model: gemini-3-flash-preview
+[00:32:14] 🔍 [AUTH] gemini | available: 2/2
+[00:32:14] ℹ️  [AUTH] [32mUsing gemini account: key1[0m
+[00:32:14] 🔍 [FORMAT] openai → gemini | stream=false
+[00:32:14] [PENDING] START | provider=gemini | model=gemini-3-flash-preview
+[00:32:14] 🔍 [REQUEST] GEMINI | gemini-3-flash-preview | 1 msgs
+<-- GET /api/usage/chart?range=7d&granularity=hourly&period=7d
+--> GET /api/usage/chart?range=7d&granularity=hourly&period=7d [32m200[0m 20ms
+[00:32:31] [PENDING] END | provider=gemini | model=gemini-3-flash-preview
+[32m[00:32:31] 📊 [USAGE] GEMINI | in=6403 | out=0 | account=d7d93323...[0m
+[00:32:31] 🌊 [STREAM] GEMINI | gemini-3-flash-preview | 16387ms | complete
+--> POST /api/v1beta/models/gemini-3-flash-preview:generateContent [32m200[0m 16s
+--> POST /v1beta/models/gemini-3-flash-preview:generateContent [32m200[0m 16s
+<-- GET /api/usage/chart?range=7d&granularity=hourly&period=7d
+--> GET /api/usage/chart?range=7d&granularity=hourly&period=7d [32m200[0m 28ms
+<-- POST /v1beta/models/gc/gemini-3-flash-preview:streamGenerateContent?alt=sse
+<-- POST /api/v1beta/models/gc/gemini-3-flash-preview:streamGenerateContent?alt=sse
+[36m[00:32:31] 📥 POST /api/v1beta/models/gc/gemini-3-flash-preview:streamGenerateContent | gc/gemini-3-flash-preview | 7 msgs | 16 tools[0m
+[00:32:31] 🔍 [AUTH] No API key provided (local mode)
+[00:32:31] ℹ️  [ROUTING] gc/gemini-3-flash-preview → gemini-cli/gemini-3-flash-preview
+[00:32:31] 🔍 [AUTH] gemini-cli | total connections: 3, excludeIds: none, model: gemini-3-flash-preview
+[00:32:31] 🔍 [AUTH] gemini-cli | available: 3/3
+[00:32:31] ℹ️  [AUTH] [32mUsing gemini-cli account: mdong7106@gmail.com[0m
+[00:32:31] 🔍 [FORMAT] openai → gemini-cli | stream=true
+[00:32:31] [PENDING] START | provider=gemini-cli | model=gemini-3-flash-preview
+[00:32:31] 🔍 [REQUEST] GEMINI-CLI | gemini-3-flash-preview | 5 msgs
+<-- GET /api/usage/chart?range=7d&granularity=hourly&period=7d
+--> GET /api/usage/chart?range=7d&granularity=hourly&period=7d [32m200[0m 18ms
+[00:32:33] [PENDING] END (ERROR) | provider=gemini-cli | model=gemini-3-flash-preview
+[31m[ERROR] [429]: {
+  "error": {
+    "code": 429,
+    "message": "No capacity available for model gemini-3-flash-preview on the server",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+        "reason": "MODEL_CAPACITY_EXHAUSTED",
+        "domain": "cloudcode-pa.googleapis.com",
+        "metadata": {
+          "model": "gemini-3-flash-preview"
+        }
+      }
+    ]
+  }
+}
+[0m
+[00:32:33] 🔍 [AUTH] gemini-cli | total connections: 3, excludeIds: df76423d-5a1c-4eda-afdb-6fc27ba0d20d, model: gemini-3-flash-preview
+[00:32:33] 🔍 [AUTH] gemini-cli | available: 2/3
+[00:32:33] 🔍 [AUTH]   → df76423d | excluded modelLocked(gemini-3-flash-preview) until 2026-05-13T17:32:37.103Z
+[00:32:33] ℹ️  [AUTH] [32mUsing gemini-cli account: minhdong.contact@gmail.com[0m
+[00:32:33] 🔍 [FORMAT] openai → gemini-cli | stream=true
+[00:32:33] [PENDING] START | provider=gemini-cli | model=gemini-3-flash-preview
+[00:32:33] 🔍 [REQUEST] GEMINI-CLI | gemini-3-flash-preview | 5 msgs
+<-- GET /api/usage/chart?range=7d&granularity=hourly&period=7d
+--> GET /api/usage/chart?range=7d&granularity=hourly&period=7d [32m200[0m 19ms
+<-- GET /api/usage/chart?range=7d&granularity=hourly&period=7d
+--> GET /api/usage/chart?range=7d&granularity=hourly&period=7d [32m200[0m 20ms
+[00:32:35] [PENDING] END (ERROR) | provider=gemini-cli | model=gemini-3-flash-preview
+[31m[ERROR] [429]: {
+  "error": {
+    "code": 429,
+    "message": "No capacity available for model gemini-3-flash-preview on the server",
+    "status": "RESOURCE_EXHAUSTED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+        "reason": "MODEL_CAPACITY_EXHAUSTED",
+        "domain": "cloudcode-pa.googleapis.com",
+        "metadata": {
+          "model": "gemini-3-flash-preview"
+        }
+      }
+    ]
+  }
+}
+[0m
+[00:32:35] 🔍 [AUTH] gemini-cli | total connections: 3, excludeIds: df76423d-5a1c-4eda-afdb-6fc27ba0d20d,7ba42d2d-7788-48cd-abfb-6f65c3c80e92, model: gemini-3-flash-preview
+[00:32:35] 🔍 [AUTH] gemini-cli | available: 1/3
+[00:32:35] 🔍 [AUTH]   → df76423d | excluded modelLocked(gemini-3-flash-preview) until 2026-05-13T17:32:37.103Z
+[00:32:35] 🔍 [AUTH]   → 7ba42d2d | excluded modelLocked(gemini-3-flash-preview) until 2026-05-13T17:32:37.284Z
+[00:32:35] ℹ️  [AUTH] [32mUsing gemini-cli account: dongdz.profile@gmail.com[0m
+[00:32:35] 🔍 [FORMAT] openai → gemini-cli | stream=true
+[00:32:35] [PENDING] START | provider=gemini-cli | model=gemini-3-flash-preview
+[00:32:35] 🔍 [REQUEST] GEMINI-CLI | gemini-3-flash-preview | 5 msgs
+<-- GET /api/usage/chart?range=7d&granularity=hourly&period=7d
+--> GET /api/usage/chart?range=7d&granularity=hourly&period=7d [32m200[0m 16ms
+<-- GET /api/usage/chart?range=7d&granularity=hourly&period=7d
+--> GET /api/usage/chart?range=7d&granularity=hourly&period=7d [32m200[0m 16ms
+--> POST /api/v1beta/models/gc/gemini-3-flash-preview:streamGenerateContent?alt=sse [32m200[0m 6s
+--> POST /v1beta/models/gc/gemini-3-flash-preview:streamGenerateContent?alt=sse [32m200[0m 6s
+[00:32:37] [PENDING] END | provider=gemini-cli | model=gemini-3-flash-preview
+[00:32:37] 📊 [32m[USAGE] GEMINI-CLI | in=11810 | out=0 | account=84742394...[0m | cache_read=7857
+[32m[00:32:37] 📊 [STREAM USAGE] GEMINI-CLI | in=11810 | out=0 | account=84742394...[0m
+[00:32:37] 🌊 [STREAM] GEMINI-CLI | gemini-3-flash-preview | 1721ms | complete
+<-- GET /api/usage/chart?range=7d&granularity=hourly&period=7d
+--> GET /api/usage/chart?range=7d&granularity=hourly&period=7d [32m200[0m 25ms
+<-- POST /v1beta/models/gc/gemini-3-flash-preview:streamGenerateContent?alt=sse
+<-- POST /api/v1beta/models/gc/gemini-3-flash-preview:streamGenerateContent?alt=sse
+[36m[00:32:43] 📥 POST /api/v1beta/models/gc/gemini-3-flash-preview:streamGenerateContent | gc/gemini-3-flash-preview | 8 msgs | 16 tools[0m
+[00:32:43] 🔍 [AUTH] No API key provided (local mode)
+[00:32:43] ℹ️  [ROUTING] gc/gemini-3-flash-preview → gemini-cli/gemini-3-flash-preview
+[00:32:43] 🔍 [AUTH] gemini-cli | total connections: 3, excludeIds: none, model: gemini-3-flash-preview
+[00:32:43] 🔍 [AUTH] gemini-cli | available: 3/3
+[00:32:43] ℹ️  [AUTH] [32mUsing gemini-cli account: mdong7106@gmail.com[0m
+[00:32:43] 🔍 [FORMAT] openai → gemini-cli | stream=true
+[00:32:43] [PENDING] START | provider=gemini-cli | model=gemini-3-flash-preview
+[00:32:43] 🔍 [REQUEST] GEMINI-CLI | gemini-3-flash-preview | 6 msgs
+<-- GET /api/usage/chart?range=7d&granularity=hourly&period=7d
+--> GET /api/usage/chart?range=7d&granularity=hourly&period=7d [32m200[0m 18ms
+--> POST /api/v1beta/models/gc/gemini-3-flash-preview:streamGenerateContent?alt=sse [32m200[0m 4s
+--> POST /v1beta/models/gc/gemini-3-flash-preview:streamGenerateContent?alt=sse [32m200[0m 4s
+[00:32:49] [PENDING] END | provider=gemini-cli | model=gemini-3-flash-preview
+[00:32:49] 📊 [32m[USAGE] GEMINI-CLI | in=11733 | out=677 | account=df76423d...[0m
+[32m[00:32:49] 📊 [STREAM USAGE] GEMINI-CLI | in=11733 | out=677 | account=df76423d...[0m
+[00:32:49] 🌊 [STREAM] GEMINI-CLI | gemini-3-flash-preview | 5954ms | complete
+<-- GET /api/usage/chart?range=7d&granularity=hourly&period=7d
+--> GET /api/usage/chart?range=7d&granularity=hourly&period=7d [32m200[0m 35ms
+<-- GET /assets/page-BuISt-yB.js
+--> GET /assets/page-BuISt-yB.js [32m200[0m 1ms
+<-- GET /assets/cliTools-CuHvPD9F.js
+--> GET /assets/cliTools-CuHvPD9F.js [32m200[0m 1ms
+<-- GET /api/auth/status
+--> GET /api/auth/status [32m200[0m 1ms
+<-- GET /api/providers
+--> GET /api/providers [32m200[0m 2ms
+<-- GET /api/settings
+--> GET /api/settings [32m200[0m 1ms
+<-- GET /api/tunnel/status
+--> GET /api/tunnel/status [32m200[0m 1ms
+<-- GET /api/keys
+--> GET /api/keys [32m200[0m 1ms
+<-- GET /api/cli-tools/all-statuses
+<-- GET /i18n/literals/vi.json
+--> GET /i18n/literals/vi.json [32m200[0m 0ms
+<-- GET /providers/claude.png
+--> GET /providers/claude.png [32m200[0m 1ms
+<-- GET /providers/openclaw.png
+--> GET /providers/openclaw.png [32m200[0m 0ms
+<-- GET /providers/hermes.png
+--> GET /providers/hermes.png [32m200[0m 1ms
+<-- GET /providers/cursor.png
+--> GET /providers/cursor.png [32m200[0m 1ms
+<-- GET /providers/cline.png
+--> GET /providers/cline.png [32m200[0m 1ms
+<-- GET /api/settings
+--> GET /api/settings [32m200[0m 1ms
+<-- GET /providers/droid.png
+--> GET /providers/droid.png [32m200[0m 0ms
+<-- GET /providers/roo.png
+--> GET /providers/roo.png [32m200[0m 1ms
+<-- GET /providers/continue.png
+--> GET /providers/continue.png [32m200[0m 1ms
+<-- GET /providers/antigravity.png
+--> GET /providers/antigravity.png [32m200[0m 1ms
+<-- GET /providers/copilot.png
+--> GET /providers/copilot.png [32m200[0m 1ms
+<-- GET /providers/kiro.png
+--> GET /providers/kiro.png [32m200[0m 1ms
+--> GET /api/cli-tools/all-statuses [32m200[0m 395ms
+<-- POST /v1/responses
+<-- POST /api/v1/responses
+[36m[00:36:02] 📥 POST /api/v1/responses | gpt-5.4 | 300 msgs | 11 tools | effort=xhigh[0m
+[00:36:02] 🔍 [AUTH] API Key: sk_9...uter
+[00:36:02] ℹ️  [ROUTING] gpt-5.4 → codex/gpt-5.4
+[00:36:02] 🔍 [AUTH] codex | total connections: 10, excludeIds: none, model: gpt-5.4
+[00:36:02] 🔍 [AUTH] codex | available: 6/10
+[00:36:02] 🔍 [AUTH]   → 20e2684a |  modelLocked(gpt-5.4) until 2026-05-13T17:39:38.555Z
+[00:36:02] 🔍 [AUTH]   → df92be61 |  modelLocked(gpt-5.4) until 2026-05-13T17:39:31.801Z
+[00:36:02] 🔍 [AUTH]   → 209f8c0a |  modelLocked(gpt-5.4) until 2026-05-13T17:39:34.196Z
+[00:36:02] 🔍 [AUTH]   → d8cdb1d4 |  modelLocked(gpt-5.4) until 2026-05-13T17:39:36.539Z
+[00:36:02] ℹ️  [AUTH] [32mUsing codex account: Account 3[0m
+[00:36:02] 🔍 [FORMAT] openai-responses → openai-responses | stream=true
+[RTK] saved 23803B / 540317B (4.4%) via [grep,dedup-log,git-status] hits=20
+[00:36:02] [PENDING] START | provider=codex | model=gpt-5.4
+[00:36:02] 🔍 [REQUEST] CODEX | gpt-5.4 | 300 msgs
+[00:36:03] 🔍 [WARMUP] session cookies established for ccb01920
+[00:36:04] [PENDING] END (ERROR) | provider=codex | model=gpt-5.4
+[31m[ERROR] [429]: The usage limit has been reached[0m
+[00:36:04] 🔍 [AUTH] codex | total connections: 10, excludeIds: ccb01920-9293-43e9-8a5b-d6d2fcef8da9, model: gpt-5.4
+[00:36:04] 🔍 [AUTH] codex | available: 5/10
+[00:36:04] 🔍 [AUTH]   → 20e2684a |  modelLocked(gpt-5.4) until 2026-05-13T17:39:38.555Z
+[00:36:04] 🔍 [AUTH]   → ccb01920 | excluded modelLocked(gpt-5.4) until 2026-05-13T18:06:04.461Z
+[00:36:04] 🔍 [AUTH]   → df92be61 |  modelLocked(gpt-5.4) until 2026-05-13T17:39:31.801Z
+[00:36:04] 🔍 [AUTH]   → 209f8c0a |  modelLocked(gpt-5.4) until 2026-05-13T17:39:34.196Z
+[00:36:04] 🔍 [AUTH]   → d8cdb1d4 |  modelLocked(gpt-5.4) until 2026-05-13T17:39:36.539Z
+[00:36:04] ℹ️  [AUTH] [32mUsing codex account: dongreplit@gmail.com[0m
+[00:36:04] 🔍 [FORMAT] openai-responses → openai-responses | stream=true
+[RTK] saved 9954B / 516514B (1.9%) via [git-status,dedup-log] hits=13
+[00:36:04] [PENDING] START | provider=codex | model=gpt-5.4
+[00:36:04] 🔍 [REQUEST] CODEX | gpt-5.4 | 300 msgs
+[00:36:05] 🔍 [WARMUP] session cookies established for e7abb8c6
+[00:36:07] 🔍 [QUOTA] passive: primary=97% secondary=0%
+--> POST /api/v1/responses [32m200[0m 5s
+--> POST /v1/responses [32m200[0m 5s
+[00:36:19] [PENDING] END | provider=codex | model=gpt-5.4
+[00:36:19] 📊 [32m[USAGE] CODEX | in=179672 | out=520 | account=e7abb8c6...[0m | cache_read=34176 | reasoning=112
+[32m[00:36:19] 📊 [STREAM USAGE] CODEX | in=179672 | out=520 | account=e7abb8c6...[0m
+[00:36:19] 🔍 [AFFINITY] recorded 93767139 → conn=e7abb8c6
+[00:36:19] 🌊 [STREAM] CODEX | gpt-5.4 | 14786ms | complete
+<-- POST /v1/responses
+<-- POST /api/v1/responses
+[36m[00:36:20] 📥 POST /api/v1/responses | gpt-5.4 | 310 msgs | 11 tools | effort=xhigh[0m
+[00:36:20] 🔍 [AUTH] API Key: sk_9...uter
+[00:36:20] ℹ️  [ROUTING] gpt-5.4 → codex/gpt-5.4
+[00:36:20] 🔍 [AUTH] codex | total connections: 10, excludeIds: none, model: gpt-5.4
+[00:36:20] 🔍 [AUTH] codex | available: 5/10
+[00:36:20] 🔍 [AUTH]   → 20e2684a |  modelLocked(gpt-5.4) until 2026-05-13T17:39:38.555Z
+[00:36:20] 🔍 [AUTH]   → ccb01920 |  modelLocked(gpt-5.4) until 2026-05-13T18:06:04.461Z
+[00:36:20] 🔍 [AUTH]   → df92be61 |  modelLocked(gpt-5.4) until 2026-05-13T17:39:31.801Z
+[00:36:20] 🔍 [AUTH]   → 209f8c0a |  modelLocked(gpt-5.4) until 2026-05-13T17:39:34.196Z
+[00:36:20] 🔍 [AUTH]   → d8cdb1d4 |  modelLocked(gpt-5.4) until 2026-05-13T17:39:36.539Z
+[00:36:20] ℹ️  [AUTH] [32mUsing codex account: shopdonix@gmail.com[0m
+[00:36:20] 🔍 [FORMAT] openai-responses → openai-responses | stream=true
+[RTK] saved 29818B / 573033B (5.2%) via [grep,dedup-log,git-status] hits=23
+[00:36:20] [PENDING] START | provider=codex | model=gpt-5.4
+[00:36:20] 🔍 [REQUEST] CODEX | gpt-5.4 | 310 msgs
+[00:36:20] 🔍 [WARMUP] session cookies established for d7a491a8
+[00:36:23] 🔍 [QUOTA] passive: primary=97% secondary=0%
+--> POST /api/v1/responses [32m200[0m 3s
+--> POST /v1/responses [32m200[0m 3s
+[00:38:58] 🌊 [STREAM] CODEX | gpt-5.4 | 158608ms | disconnect: cancelled
+[00:38:58] [PENDING] END | provider=codex | model=gpt-5.4
+<-- POST /v1/responses
+<-- POST /api/v1/responses
+[36m[00:39:00] 📥 POST /api/v1/responses | gpt-5.4 | 338 msgs | effort=xhigh[0m
+[00:39:00] 🔍 [AUTH] API Key: sk_9...uter
+[00:39:00] ℹ️  [ROUTING] gpt-5.4 → codex/gpt-5.4
+[00:39:00] 🔍 [AUTH] codex | total connections: 10, excludeIds: none, model: gpt-5.4
+[00:39:00] 🔍 [AUTH] codex | available: 5/10
+[00:39:00] 🔍 [AUTH]   → 20e2684a |  modelLocked(gpt-5.4) until 2026-05-13T17:39:38.555Z
+[00:39:00] 🔍 [AUTH]   → ccb01920 |  modelLocked(gpt-5.4) until 2026-05-13T18:06:04.461Z
+[00:39:00] 🔍 [AUTH]   → df92be61 |  modelLocked(gpt-5.4) until 2026-05-13T17:39:31.801Z
+[00:39:00] 🔍 [AUTH]   → 209f8c0a |  modelLocked(gpt-5.4) until 2026-05-13T17:39:34.196Z
+[00:39:00] 🔍 [AUTH]   → d8cdb1d4 |  modelLocked(gpt-5.4) until 2026-05-13T17:39:36.539Z
+[00:39:00] ℹ️  [AUTH] [32mUsing codex account: donged7106@gmail.com[0m
+[00:39:00] 🔍 [FORMAT] openai-responses → openai-responses | stream=true
+[RTK] saved 29844B / 636665B (4.7%) via [grep,dedup-log,git-status] hits=24
+[00:39:00] [PENDING] START | provider=codex | model=gpt-5.4
+[00:39:00] 🔍 [REQUEST] CODEX | gpt-5.4 | 338 msgs
+[00:39:01] 🔍 [WARMUP] session cookies established for dc229077
+[00:39:03] 🔍 [QUOTA] passive: primary=13% secondary=45%
+--> POST /api/v1/responses [32m200[0m 3s
+--> POST /v1/responses [32m200[0m 3s
+[00:39:40] 🌊 [STREAM] CODEX | gpt-5.4 | 39331ms | disconnect: cancelled
+[00:39:40] [PENDING] END | provider=codex | model=gpt-5.4
+<-- POST /v1/responses
+<-- POST /api/v1/responses
+[36m[00:39:40] 📥 POST /api/v1/responses | gpt-5.4 | 12 msgs | 11 tools | effort=xhigh[0m
+[00:39:40] 🔍 [AUTH] API Key: sk_9...uter
+[00:39:40] ℹ️  [ROUTING] gpt-5.4 → codex/gpt-5.4
+[00:39:40] 🔍 [AUTH] codex | total connections: 10, excludeIds: none, model: gpt-5.4
+[00:39:40] 🔍 [AUTH] codex | available: 9/10
+[00:39:40] 🔍 [AUTH]   → ccb01920 |  modelLocked(gpt-5.4) until 2026-05-13T18:06:04.461Z
+[00:39:40] ℹ️  [AUTH] [32mUsing codex account: Account 4[0m
+[00:39:40] 🔍 [FORMAT] openai-responses → openai-responses | stream=true
+[00:39:40] [PENDING] START | provider=codex | model=gpt-5.4
+[00:39:40] 🔍 [REQUEST] CODEX | gpt-5.4 | 12 msgs
+[00:39:40] 🔍 [WARMUP] session cookies established for df92be61
+[00:39:41] [PENDING] END (ERROR) | provider=codex | model=gpt-5.4
+[31m[ERROR] [429]: The usage limit has been reached[0m
+[00:39:41] 🔍 [AUTH] codex | total connections: 10, excludeIds: df92be61-0dcc-4d5c-89b0-b55d9e8151ae, model: gpt-5.4
+[00:39:41] 🔍 [AUTH] codex | available: 8/10
+[00:39:41] 🔍 [AUTH]   → ccb01920 |  modelLocked(gpt-5.4) until 2026-05-13T18:06:04.461Z
+[00:39:41] 🔍 [AUTH]   → df92be61 | excluded modelLocked(gpt-5.4) until 2026-05-13T18:09:41.681Z
+[00:39:41] ℹ️  [AUTH] [32mUsing codex account: Account 5[0m
+[00:39:41] 🔍 [FORMAT] openai-responses → openai-responses | stream=true
+[00:39:41] [PENDING] START | provider=codex | model=gpt-5.4
+[00:39:41] 🔍 [REQUEST] CODEX | gpt-5.4 | 12 msgs
+[00:39:42] 🔍 [WARMUP] session cookies established for 209f8c0a
+[00:39:43] [PENDING] END (ERROR) | provider=codex | model=gpt-5.4
+[31m[ERROR] [429]: The usage limit has been reached[0m
+[00:39:43] 🔍 [AUTH] codex | total connections: 10, excludeIds: df92be61-0dcc-4d5c-89b0-b55d9e8151ae,209f8c0a-145e-45d2-95b1-f60cc1685679, model: gpt-5.4
+[00:39:43] 🔍 [AUTH] codex | available: 7/10
+[00:39:43] 🔍 [AUTH]   → ccb01920 |  modelLocked(gpt-5.4) until 2026-05-13T18:06:04.461Z
+[00:39:43] 🔍 [AUTH]   → df92be61 | excluded modelLocked(gpt-5.4) until 2026-05-13T18:09:41.681Z
+[00:39:43] 🔍 [AUTH]   → 209f8c0a | excluded modelLocked(gpt-5.4) until 2026-05-13T18:09:43.458Z
+[00:39:43] ℹ️  [AUTH] [32mUsing codex account: Account 6[0m
+[00:39:43] 🔍 [FORMAT] openai-responses → openai-responses | stream=true
+[00:39:43] [PENDING] START | provider=codex | model=gpt-5.4
+[00:39:43] 🔍 [REQUEST] CODEX | gpt-5.4 | 12 msgs
+[00:39:44] 🔍 [WARMUP] session cookies established for d8cdb1d4
+[00:39:44] [PENDING] END (ERROR) | provider=codex | model=gpt-5.4
+[31m[ERROR] [429]: The usage limit has been reached[0m
+[00:39:44] 🔍 [AUTH] codex | total connections: 10, excludeIds: df92be61-0dcc-4d5c-89b0-b55d9e8151ae,209f8c0a-145e-45d2-95b1-f60cc1685679,d8cdb1d4-d100-452c-9c3c-f36c1049b50d, model: gpt-5.4
+[00:39:44] 🔍 [AUTH] codex | available: 6/10
+[00:39:44] 🔍 [AUTH]   → ccb01920 |  modelLocked(gpt-5.4) until 2026-05-13T18:06:04.461Z
+[00:39:44] 🔍 [AUTH]   → df92be61 | excluded modelLocked(gpt-5.4) until 2026-05-13T18:09:41.681Z
+[00:39:44] 🔍 [AUTH]   → 209f8c0a | excluded modelLocked(gpt-5.4) until 2026-05-13T18:09:43.458Z
+[00:39:44] 🔍 [AUTH]   → d8cdb1d4 | excluded modelLocked(gpt-5.4) until 2026-05-13T18:09:44.866Z
+[00:39:44] ℹ️  [AUTH] [32mUsing codex account: Account 1[0m
+[00:39:44] 🔍 [FORMAT] openai-responses → openai-responses | stream=true
+[00:39:44] [PENDING] START | provider=codex | model=gpt-5.4
+[00:39:44] 🔍 [REQUEST] CODEX | gpt-5.4 | 12 msgs
+[00:39:45] 🔍 [WARMUP] session cookies established for 20e2684a
+[00:39:46] [PENDING] END (ERROR) | provider=codex | model=gpt-5.4
+[31m[ERROR] [429]: The usage limit has been reached[0m
+[00:39:46] 🔍 [AUTH] codex | total connections: 10, excludeIds: df92be61-0dcc-4d5c-89b0-b55d9e8151ae,209f8c0a-145e-45d2-95b1-f60cc1685679,d8cdb1d4-d100-452c-9c3c-f36c1049b50d,20e2684a-0245-4d2e-b641-772a6ac37fc5, model: gpt-5.4
+[00:39:46] 🔍 [AUTH] codex | available: 5/10
+[00:39:46] 🔍 [AUTH]   → 20e2684a | excluded modelLocked(gpt-5.4) until 2026-05-13T18:09:46.048Z
+[00:39:46] 🔍 [AUTH]   → ccb01920 |  modelLocked(gpt-5.4) until 2026-05-13T18:06:04.461Z
+[00:39:46] 🔍 [AUTH]   → df92be61 | excluded modelLocked(gpt-5.4) until 2026-05-13T18:09:41.681Z
+[00:39:46] 🔍 [AUTH]   → 209f8c0a | excluded modelLocked(gpt-5.4) until 2026-05-13T18:09:43.458Z
+[00:39:46] 🔍 [AUTH]   → d8cdb1d4 | excluded modelLocked(gpt-5.4) until 2026-05-13T18:09:44.866Z
+[00:39:46] ℹ️  [AUTH] [32mUsing codex account: minhdong.contact@gmail.com[0m
+[00:39:46] 🔍 [FORMAT] openai-responses → openai-responses | stream=true
+[00:39:46] [PENDING] START | provider=codex | model=gpt-5.4
+[00:39:46] 🔍 [REQUEST] CODEX | gpt-5.4 | 12 msgs
+[00:39:46] 🔍 [QUOTA] passive: primary=65% secondary=0%
+--> POST /api/v1/responses [32m200[0m 7s
+--> POST /v1/responses [32m200[0m 7s
+[00:40:07] [PENDING] END | provider=codex | model=gpt-5.4
+[00:40:07] 📊 [32m[USAGE] CODEX | in=17437 | out=901 | account=a9be1da5...[0m | cache_read=9088 | reasoning=232
+[32m[00:40:07] 📊 [STREAM USAGE] CODEX | in=17437 | out=901 | account=a9be1da5...[0m
+[00:40:07] 🔍 [AFFINITY] recorded 93986789 → conn=a9be1da5
+[00:40:07] 🌊 [STREAM] CODEX | gpt-5.4 | 21002ms | complete
+<-- POST /v1/responses
+<-- POST /api/v1/responses
+[36m[00:40:08] 📥 POST /api/v1/responses | gpt-5.4 | 28 msgs | 11 tools | effort=xhigh[0m
+[00:40:08] 🔍 [AUTH] API Key: sk_9...uter
+[00:40:08] ℹ️  [ROUTING] gpt-5.4 → codex/gpt-5.4
+[00:40:08] 🔍 [AUTH] codex | total connections: 10, excludeIds: none, model: gpt-5.4
+[00:40:08] 🔍 [AUTH] codex | available: 5/10
+[00:40:08] 🔍 [AUTH]   → 20e2684a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:46.048Z
+[00:40:08] 🔍 [AUTH]   → ccb01920 |  modelLocked(gpt-5.4) until 2026-05-13T18:06:04.461Z
+[00:40:08] 🔍 [AUTH]   → df92be61 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:41.681Z
+[00:40:08] 🔍 [AUTH]   → 209f8c0a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:43.458Z
+[00:40:08] 🔍 [AUTH]   → d8cdb1d4 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:44.866Z
+[00:40:08] ℹ️  [AUTH] [32mUsing codex account: Account 2[0m
+[00:40:08] 🔍 [FORMAT] openai-responses → openai-responses | stream=true
+[RTK] saved 28B / 85579B (0.0%) via [dedup-log] hits=3
+[00:40:08] [PENDING] START | provider=codex | model=gpt-5.4
+[00:40:08] 🔍 [REQUEST] CODEX | gpt-5.4 | 28 msgs
+[00:40:09] 🔍 [QUOTA] passive: primary=1% secondary=100%
+--> POST /api/v1/responses [32m200[0m 824ms
+--> POST /v1/responses [32m200[0m 826ms
+[00:40:46] [PENDING] END | provider=codex | model=gpt-5.4
+[00:40:46] 📊 [32m[USAGE] CODEX | in=53025 | out=1009 | account=7d25f119...[0m | cache_read=9088 | reasoning=489
+[32m[00:40:46] 📊 [STREAM USAGE] CODEX | in=53025 | out=1009 | account=7d25f119...[0m
+[00:40:46] 🔍 [AFFINITY] recorded 94009133 → conn=7d25f119
+[00:40:46] 🌊 [STREAM] CODEX | gpt-5.4 | 38121ms | complete
+<-- POST /v1/responses
+<-- POST /api/v1/responses
+[36m[00:40:47] 📥 POST /api/v1/responses | gpt-5.4 | 46 msgs | 11 tools | effort=xhigh[0m
+[00:40:47] 🔍 [AUTH] API Key: sk_9...uter
+[00:40:47] ℹ️  [ROUTING] gpt-5.4 → codex/gpt-5.4
+[00:40:47] 🔍 [AUTH] codex | total connections: 10, excludeIds: none, model: gpt-5.4
+[00:40:47] 🔍 [AUTH] codex | available: 5/10
+[00:40:47] 🔍 [AUTH]   → 20e2684a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:46.048Z
+[00:40:47] 🔍 [AUTH]   → ccb01920 |  modelLocked(gpt-5.4) until 2026-05-13T18:06:04.461Z
+[00:40:47] 🔍 [AUTH]   → df92be61 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:41.681Z
+[00:40:47] 🔍 [AUTH]   → 209f8c0a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:43.458Z
+[00:40:47] 🔍 [AUTH]   → d8cdb1d4 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:44.866Z
+[00:40:47] ℹ️  [AUTH] [32mUsing codex account: dongreplit@gmail.com[0m
+[00:40:47] 🔍 [FORMAT] openai-responses → openai-responses | stream=true
+[RTK] saved 31B / 133705B (0.0%) via [dedup-log] hits=4
+[00:40:47] [PENDING] START | provider=codex | model=gpt-5.4
+[00:40:47] 🔍 [REQUEST] CODEX | gpt-5.4 | 46 msgs
+[00:40:48] 🔍 [QUOTA] passive: primary=97% secondary=0%
+--> POST /api/v1/responses [32m200[0m 1s
+--> POST /v1/responses [32m200[0m 1s
+[00:41:03] [PENDING] END | provider=codex | model=gpt-5.4
+[00:41:03] 📊 [32m[USAGE] CODEX | in=54803 | out=509 | account=e7abb8c6...[0m | cache_read=9088 | reasoning=22
+[32m[00:41:03] 📊 [STREAM USAGE] CODEX | in=54803 | out=509 | account=e7abb8c6...[0m
+[00:41:03] 🔍 [AFFINITY] recorded 94048870 → conn=e7abb8c6
+[00:41:03] 🌊 [STREAM] CODEX | gpt-5.4 | 15976ms | complete
+<-- POST /v1/responses
+<-- POST /api/v1/responses
+[36m[00:41:04] 📥 POST /api/v1/responses | gpt-5.4 | 58 msgs | 11 tools | effort=xhigh[0m
+[00:41:04] 🔍 [AUTH] API Key: sk_9...uter
+[00:41:04] ℹ️  [ROUTING] gpt-5.4 → codex/gpt-5.4
+[00:41:04] 🔍 [AUTH] codex | total connections: 10, excludeIds: none, model: gpt-5.4
+[00:41:04] 🔍 [AUTH] codex | available: 5/10
+[00:41:04] 🔍 [AUTH]   → 20e2684a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:46.048Z
+[00:41:04] 🔍 [AUTH]   → ccb01920 |  modelLocked(gpt-5.4) until 2026-05-13T18:06:04.461Z
+[00:41:04] 🔍 [AUTH]   → df92be61 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:41.681Z
+[00:41:04] 🔍 [AUTH]   → 209f8c0a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:43.458Z
+[00:41:04] 🔍 [AUTH]   → d8cdb1d4 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:44.866Z
+[00:41:04] ℹ️  [AUTH] [32mUsing codex account: shopdonix@gmail.com[0m
+[00:41:04] 🔍 [FORMAT] openai-responses → openai-responses | stream=true
+[RTK] saved 31B / 184955B (0.0%) via [dedup-log] hits=4
+[00:41:04] [PENDING] START | provider=codex | model=gpt-5.4
+[00:41:04] 🔍 [REQUEST] CODEX | gpt-5.4 | 58 msgs
+[00:41:06] 🔍 [QUOTA] passive: primary=99% secondary=0%
+--> POST /api/v1/responses [32m200[0m 2s
+--> POST /v1/responses [32m200[0m 2s
+[00:41:15] [PENDING] END | provider=codex | model=gpt-5.4
+[00:41:15] 📊 [32m[USAGE] CODEX | in=71228 | out=433 | account=d7a491a8...[0m | cache_read=54656 | reasoning=13
+[32m[00:41:15] 📊 [STREAM USAGE] CODEX | in=71228 | out=433 | account=d7a491a8...[0m
+[00:41:15] 🔍 [AFFINITY] recorded 94066612 → conn=d7a491a8
+[00:41:15] 🌊 [STREAM] CODEX | gpt-5.4 | 10764ms | complete
+<-- POST /v1/responses
+<-- POST /api/v1/responses
+[36m[00:41:16] 📥 POST /api/v1/responses | gpt-5.4 | 68 msgs | 11 tools | effort=xhigh[0m
+[00:41:16] 🔍 [AUTH] API Key: sk_9...uter
+[00:41:16] ℹ️  [ROUTING] gpt-5.4 → codex/gpt-5.4
+[00:41:16] 🔍 [AUTH] codex | total connections: 10, excludeIds: none, model: gpt-5.4
+[00:41:16] 🔍 [AUTH] codex | available: 5/10
+[00:41:16] 🔍 [AUTH]   → 20e2684a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:46.048Z
+[00:41:16] 🔍 [AUTH]   → ccb01920 |  modelLocked(gpt-5.4) until 2026-05-13T18:06:04.461Z
+[00:41:16] 🔍 [AUTH]   → df92be61 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:41.681Z
+[00:41:16] 🔍 [AUTH]   → 209f8c0a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:43.458Z
+[00:41:16] 🔍 [AUTH]   → d8cdb1d4 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:44.866Z
+[00:41:16] ℹ️  [AUTH] [32mUsing codex account: donged7106@gmail.com[0m
+[00:41:16] 🔍 [FORMAT] openai-responses → openai-responses | stream=true
+[RTK] saved 31B / 253821B (0.0%) via [dedup-log] hits=4
+[00:41:16] [PENDING] START | provider=codex | model=gpt-5.4
+[00:41:16] 🔍 [REQUEST] CODEX | gpt-5.4 | 68 msgs
+[00:41:17] 🔍 [QUOTA] passive: primary=13% secondary=45%
+--> POST /api/v1/responses [32m200[0m 1s
+--> POST /v1/responses [32m200[0m 1s
+[00:42:15] [PENDING] END | provider=codex | model=gpt-5.4
+[00:42:15] 📊 [32m[USAGE] CODEX | in=118344 | out=2409 | account=dc229077...[0m | cache_read=6016 | reasoning=2077
+[32m[00:42:15] 📊 [STREAM USAGE] CODEX | in=118344 | out=2409 | account=dc229077...[0m
+[00:42:15] 🔍 [AFFINITY] recorded 94077526 → conn=dc229077
+[00:42:15] 🌊 [STREAM] CODEX | gpt-5.4 | 59394ms | complete
+<-- POST /v1/responses
+<-- POST /api/v1/responses
+[36m[00:42:16] 📥 POST /api/v1/responses | gpt-5.4 | 88 msgs | 11 tools | effort=xhigh[0m
+[00:42:16] 🔍 [AUTH] API Key: sk_9...uter
+[00:42:16] ℹ️  [ROUTING] gpt-5.4 → codex/gpt-5.4
+[00:42:16] 🔍 [AUTH] codex | total connections: 10, excludeIds: none, model: gpt-5.4
+[00:42:16] 🔍 [AUTH] codex | available: 5/10
+[00:42:16] 🔍 [AUTH]   → 20e2684a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:46.048Z
+[00:42:16] 🔍 [AUTH]   → ccb01920 |  modelLocked(gpt-5.4) until 2026-05-13T18:06:04.461Z
+[00:42:16] 🔍 [AUTH]   → df92be61 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:41.681Z
+[00:42:16] 🔍 [AUTH]   → 209f8c0a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:43.458Z
+[00:42:16] 🔍 [AUTH]   → d8cdb1d4 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:44.866Z
+[00:42:16] ℹ️  [AUTH] [32mUsing codex account: minhdong.contact@gmail.com[0m
+[00:42:16] 🔍 [FORMAT] openai-responses → openai-responses | stream=true
+[RTK] saved 7117B / 261911B (2.7%) via [dedup-log,git-status] hits=5
+[00:42:16] [PENDING] START | provider=codex | model=gpt-5.4
+[00:42:16] 🔍 [REQUEST] CODEX | gpt-5.4 | 88 msgs
+[00:42:18] 🔍 [QUOTA] passive: primary=66% secondary=0%
+--> POST /api/v1/responses [32m200[0m 2s
+--> POST /v1/responses [32m200[0m 2s
+[00:44:43] 🌊 [STREAM] CODEX | gpt-5.4 | 147563ms | disconnect: cancelled
+[00:44:43] [PENDING] END | provider=codex | model=gpt-5.4
+<-- POST /v1/responses
+<-- POST /api/v1/responses
+[36m[00:44:43] 📥 POST /api/v1/responses | gpt-5.4 | 110 msgs | 11 tools | effort=xhigh[0m
+[00:44:43] 🔍 [AUTH] API Key: sk_9...uter
+[00:44:43] ℹ️  [ROUTING] gpt-5.4 → codex/gpt-5.4
+[00:44:43] 🔍 [AUTH] codex | total connections: 10, excludeIds: none, model: gpt-5.4
+[00:44:43] 🔍 [AUTH] codex | available: 5/10
+[00:44:43] 🔍 [AUTH]   → 20e2684a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:46.048Z
+[00:44:43] 🔍 [AUTH]   → ccb01920 |  modelLocked(gpt-5.4) until 2026-05-13T18:06:04.461Z
+[00:44:43] 🔍 [AUTH]   → df92be61 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:41.681Z
+[00:44:43] 🔍 [AUTH]   → 209f8c0a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:43.458Z
+[00:44:44] 🔍 [AUTH]   → d8cdb1d4 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:44.866Z
+[00:44:44] ℹ️  [AUTH] [32mUsing codex account: Account 2[0m
+[00:44:44] 🔍 [FORMAT] openai-responses → openai-responses | stream=true
+[RTK] saved 7120B / 264530B (2.7%) via [dedup-log,git-status] hits=6
+[00:44:44] [PENDING] START | provider=codex | model=gpt-5.4
+[00:44:44] 🔍 [REQUEST] CODEX | gpt-5.4 | 110 msgs
+[00:44:45] 🔍 [QUOTA] passive: primary=1% secondary=100%
+--> POST /api/v1/responses [32m200[0m 2s
+--> POST /v1/responses [32m200[0m 2s
+[00:44:50] [PENDING] END | provider=codex | model=gpt-5.4
+[00:44:50] 📊 [32m[USAGE] CODEX | in=97457 | out=146 | account=7d25f119...[0m | cache_read=40320 | reasoning=18
+[32m[00:44:50] 📊 [STREAM USAGE] CODEX | in=97457 | out=146 | account=7d25f119...[0m
+[00:44:50] 🔍 [AFFINITY] recorded 94285806 → conn=7d25f119
+[00:44:50] 🌊 [STREAM] CODEX | gpt-5.4 | 6094ms | complete
+<-- POST /v1/responses
+<-- POST /api/v1/responses
+[36m[00:44:50] 📥 POST /api/v1/responses | gpt-5.4 | 114 msgs | 11 tools | effort=xhigh[0m
+[00:44:50] 🔍 [AUTH] API Key: sk_9...uter
+[00:44:50] ℹ️  [ROUTING] gpt-5.4 → codex/gpt-5.4
+[00:44:50] 🔍 [AUTH] codex | total connections: 10, excludeIds: none, model: gpt-5.4
+[00:44:50] 🔍 [AUTH] codex | available: 5/10
+[00:44:50] 🔍 [AUTH]   → 20e2684a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:46.048Z
+[00:44:50] 🔍 [AUTH]   → ccb01920 |  modelLocked(gpt-5.4) until 2026-05-13T18:06:04.461Z
+[00:44:50] 🔍 [AUTH]   → df92be61 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:41.681Z
+[00:44:50] 🔍 [AUTH]   → 209f8c0a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:43.458Z
+[00:44:50] 🔍 [AUTH]   → d8cdb1d4 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:44.866Z
+[00:44:50] ℹ️  [AUTH] [32mUsing codex account: dongreplit@gmail.com[0m
+[00:44:50] 🔍 [FORMAT] openai-responses → openai-responses | stream=true
+[RTK] saved 7120B / 264574B (2.7%) via [dedup-log,git-status] hits=6
+[00:44:50] [PENDING] START | provider=codex | model=gpt-5.4
+[00:44:50] 🔍 [REQUEST] CODEX | gpt-5.4 | 114 msgs
+[00:44:51] 🔍 [QUOTA] passive: primary=98% secondary=0%
+--> POST /api/v1/responses [32m200[0m 2s
+--> POST /v1/responses [32m200[0m 2s
+[00:44:55] [PENDING] END | provider=codex | model=gpt-5.4
+[00:44:55] 📊 [32m[USAGE] CODEX | in=97631 | out=99 | account=e7abb8c6...[0m | cache_read=92544 | reasoning=21
+[32m[00:44:55] 📊 [STREAM USAGE] CODEX | in=97631 | out=99 | account=e7abb8c6...[0m
+[00:44:55] 🔍 [AFFINITY] recorded 94291771 → conn=e7abb8c6
+[00:44:55] 🌊 [STREAM] CODEX | gpt-5.4 | 4998ms | complete
+<-- POST /v1/responses
+<-- POST /api/v1/responses
+[36m[00:44:55] 📥 POST /api/v1/responses | gpt-5.4 | 117 msgs | 11 tools | effort=xhigh[0m
+[00:44:55] 🔍 [AUTH] API Key: sk_9...uter
+[00:44:55] ℹ️  [ROUTING] gpt-5.4 → codex/gpt-5.4
+[00:44:55] 🔍 [AUTH] codex | total connections: 10, excludeIds: none, model: gpt-5.4
+[00:44:55] 🔍 [AUTH] codex | available: 5/10
+[00:44:55] 🔍 [AUTH]   → 20e2684a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:46.048Z
+[00:44:55] 🔍 [AUTH]   → ccb01920 |  modelLocked(gpt-5.4) until 2026-05-13T18:06:04.461Z
+[00:44:55] 🔍 [AUTH]   → df92be61 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:41.681Z
+[00:44:55] 🔍 [AUTH]   → 209f8c0a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:43.458Z
+[00:44:55] 🔍 [AUTH]   → d8cdb1d4 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:44.866Z
+[00:44:55] ℹ️  [AUTH] [32mUsing codex account: shopdonix@gmail.com[0m
+[00:44:55] 🔍 [FORMAT] openai-responses → openai-responses | stream=true
+[RTK] saved 7120B / 266724B (2.7%) via [dedup-log,git-status] hits=6
+[00:44:55] [PENDING] START | provider=codex | model=gpt-5.4
+[00:44:55] 🔍 [REQUEST] CODEX | gpt-5.4 | 117 msgs
+[00:44:56] 🔍 [QUOTA] passive: primary=100% secondary=0%
+--> POST /api/v1/responses [32m200[0m 1s
+--> POST /v1/responses [32m200[0m 1s
+[00:44:59] [PENDING] END | provider=codex | model=gpt-5.4
+[00:44:59] 📊 [32m[USAGE] CODEX | in=98443 | out=116 | account=d7a491a8...[0m | cache_read=97152 | reasoning=18
+[32m[00:44:59] 📊 [STREAM USAGE] CODEX | in=98443 | out=116 | account=d7a491a8...[0m
+[00:44:59] 🔍 [AFFINITY] recorded 94296739 → conn=d7a491a8
+[00:44:59] 🌊 [STREAM] CODEX | gpt-5.4 | 4208ms | complete
+<-- POST /v1/responses
+<-- POST /api/v1/responses
+[36m[00:45:00] 📥 POST /api/v1/responses | gpt-5.4 | 120 msgs | 11 tools | effort=xhigh[0m
+[00:45:00] 🔍 [AUTH] API Key: sk_9...uter
+[00:45:00] ℹ️  [ROUTING] gpt-5.4 → codex/gpt-5.4
+[00:45:00] 🔍 [AUTH] codex | total connections: 10, excludeIds: none, model: gpt-5.4
+[00:45:00] 🔍 [AUTH] codex | available: 5/10
+[00:45:00] 🔍 [AUTH]   → 20e2684a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:46.048Z
+[00:45:00] 🔍 [AUTH]   → ccb01920 |  modelLocked(gpt-5.4) until 2026-05-13T18:06:04.461Z
+[00:45:00] 🔍 [AUTH]   → df92be61 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:41.681Z
+[00:45:00] 🔍 [AUTH]   → 209f8c0a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:43.458Z
+[00:45:00] 🔍 [AUTH]   → d8cdb1d4 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:44.866Z
+[00:45:00] ℹ️  [AUTH] [32mUsing codex account: donged7106@gmail.com[0m
+[00:45:00] 🔍 [FORMAT] openai-responses → openai-responses | stream=true
+[RTK] saved 7120B / 266768B (2.7%) via [dedup-log,git-status] hits=6
+[00:45:00] [PENDING] START | provider=codex | model=gpt-5.4
+[00:45:00] 🔍 [REQUEST] CODEX | gpt-5.4 | 120 msgs
+[00:45:01] 🔍 [QUOTA] passive: primary=14% secondary=45%
+--> POST /api/v1/responses [32m200[0m 2s
+--> POST /v1/responses [32m200[0m 2s
+[00:45:05] [PENDING] END | provider=codex | model=gpt-5.4
+[00:45:05] 📊 [32m[USAGE] CODEX | in=98587 | out=158 | account=dc229077...[0m | cache_read=97152 | reasoning=43
+[32m[00:45:05] 📊 [STREAM USAGE] CODEX | in=98587 | out=158 | account=dc229077...[0m
+[00:45:05] 🔍 [AFFINITY] recorded 94301759 → conn=dc229077
+[00:45:05] 🌊 [STREAM] CODEX | gpt-5.4 | 5240ms | complete
+<-- POST /v1/responses
+<-- POST /api/v1/responses
+[36m[00:45:07] 📥 POST /api/v1/responses | gpt-5.4 | 123 msgs | 11 tools | effort=xhigh[0m
+[00:45:07] 🔍 [AUTH] API Key: sk_9...uter
+[00:45:07] ℹ️  [ROUTING] gpt-5.4 → codex/gpt-5.4
+[00:45:07] 🔍 [AUTH] codex | total connections: 10, excludeIds: none, model: gpt-5.4
+[00:45:07] 🔍 [AUTH] codex | available: 5/10
+[00:45:07] 🔍 [AUTH]   → 20e2684a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:46.048Z
+[00:45:07] 🔍 [AUTH]   → ccb01920 |  modelLocked(gpt-5.4) until 2026-05-13T18:06:04.461Z
+[00:45:07] 🔍 [AUTH]   → df92be61 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:41.681Z
+[00:45:07] 🔍 [AUTH]   → 209f8c0a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:43.458Z
+[00:45:07] 🔍 [AUTH]   → d8cdb1d4 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:44.866Z
+[00:45:07] ℹ️  [AUTH] [32mUsing codex account: minhdong.contact@gmail.com[0m
+[00:45:07] 🔍 [FORMAT] openai-responses → openai-responses | stream=true
+[RTK] saved 7120B / 267444B (2.7%) via [dedup-log,git-status] hits=6
+[00:45:07] [PENDING] START | provider=codex | model=gpt-5.4
+[00:45:07] 🔍 [REQUEST] CODEX | gpt-5.4 | 123 msgs
+[00:45:08] 🔍 [QUOTA] passive: primary=68% secondary=0%
+--> POST /api/v1/responses [32m200[0m 1s
+--> POST /v1/responses [32m200[0m 1s
+[00:45:20] [PENDING] END | provider=codex | model=gpt-5.4
+[00:45:20] 📊 [32m[USAGE] CODEX | in=98985 | out=588 | account=a9be1da5...[0m | cache_read=98176 | reasoning=100
+[32m[00:45:20] 📊 [STREAM USAGE] CODEX | in=98985 | out=588 | account=a9be1da5...[0m
+[00:45:20] 🔍 [AFFINITY] recorded 94308560 → conn=a9be1da5
+[00:45:20] 🌊 [STREAM] CODEX | gpt-5.4 | 12878ms | complete
+<-- POST /v1/responses
+<-- POST /api/v1/responses
+[36m[00:45:20] 📥 POST /api/v1/responses | gpt-5.4 | 133 msgs | 11 tools | effort=xhigh[0m
+[00:45:20] 🔍 [AUTH] API Key: sk_9...uter
+[00:45:20] ℹ️  [ROUTING] gpt-5.4 → codex/gpt-5.4
+[00:45:20] 🔍 [AUTH] codex | total connections: 10, excludeIds: none, model: gpt-5.4
+[00:45:20] 🔍 [AUTH] codex | available: 5/10
+[00:45:20] 🔍 [AUTH]   → 20e2684a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:46.048Z
+[00:45:20] 🔍 [AUTH]   → ccb01920 |  modelLocked(gpt-5.4) until 2026-05-13T18:06:04.461Z
+[00:45:20] 🔍 [AUTH]   → df92be61 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:41.681Z
+[00:45:20] 🔍 [AUTH]   → 209f8c0a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:43.458Z
+[00:45:20] 🔍 [AUTH]   → d8cdb1d4 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:44.866Z
+[00:45:20] ℹ️  [AUTH] [32mUsing codex account: Account 2[0m
+[00:45:20] 🔍 [FORMAT] openai-responses → openai-responses | stream=true
+[RTK] saved 7120B / 269940B (2.6%) via [dedup-log,git-status] hits=6
+[00:45:20] [PENDING] START | provider=codex | model=gpt-5.4
+[00:45:20] 🔍 [REQUEST] CODEX | gpt-5.4 | 133 msgs
+[00:45:22] 🔍 [QUOTA] passive: primary=1% secondary=100%
+--> POST /api/v1/responses [32m200[0m 2s
+--> POST /v1/responses [32m200[0m 2s
+TOKEN Copilot token refreshed
+<-- GET /assets/page-DU__KcNc.js
+--> GET /assets/page-DU__KcNc.js [32m200[0m 0ms
+<-- GET /assets/Toggle-CU0V3nO5.js
+--> GET /assets/Toggle-CU0V3nO5.js [32m200[0m 1ms
+<-- GET /api/auth/status
+--> GET /api/auth/status [32m200[0m 1ms
+<-- GET /api/proxy-pools?isActive=true
+--> GET /api/proxy-pools?isActive=true [32m200[0m 1ms
+<-- GET /api/usage/quota-stream
+--> GET /api/usage/quota-stream [32m200[0m 1ms
+<-- GET /i18n/literals/vi.json
+--> GET /i18n/literals/vi.json [32m200[0m 0ms
+[00:48:46] [PENDING] END | provider=codex | model=gpt-5.4
+[00:48:46] 📊 [32m[USAGE] CODEX | in=100369 | out=10859 | account=7d25f119...[0m | cache_read=98176 | reasoning=2608
+[32m[00:48:46] 📊 [STREAM USAGE] CODEX | in=100369 | out=10859 | account=7d25f119...[0m
+[00:48:46] 🔍 [AFFINITY] recorded 94322550 → conn=7d25f119
+[00:48:46] 🌊 [STREAM] CODEX | gpt-5.4 | 206066ms | complete
+<-- POST /v1/responses
+<-- POST /api/v1/responses
+[36m[00:48:46] 📥 POST /api/v1/responses | gpt-5.4 | 137 msgs | 11 tools | effort=xhigh[0m
+[00:48:46] 🔍 [AUTH] API Key: sk_9...uter
+[00:48:46] ℹ️  [ROUTING] gpt-5.4 → codex/gpt-5.4
+[00:48:46] 🔍 [AUTH] codex | total connections: 10, excludeIds: none, model: gpt-5.4
+[00:48:46] 🔍 [AUTH] codex | available: 5/10
+[00:48:46] 🔍 [AUTH]   → 20e2684a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:46.048Z
+[00:48:46] 🔍 [AUTH]   → ccb01920 |  modelLocked(gpt-5.4) until 2026-05-13T18:06:04.461Z
+[00:48:46] 🔍 [AUTH]   → df92be61 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:41.681Z
+[00:48:46] 🔍 [AUTH]   → 209f8c0a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:43.458Z
+[00:48:46] 🔍 [AUTH]   → d8cdb1d4 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:44.866Z
+[00:48:46] ℹ️  [AUTH] [32mUsing codex account: dongreplit@gmail.com[0m
+[00:48:46] 🔍 [FORMAT] openai-responses → openai-responses | stream=true
+[RTK] saved 7120B / 269940B (2.6%) via [dedup-log,git-status] hits=6
+[00:48:46] [PENDING] START | provider=codex | model=gpt-5.4
+[00:48:46] 🔍 [REQUEST] CODEX | gpt-5.4 | 137 msgs
+[00:48:48] 🔍 [QUOTA] passive: primary=99% secondary=0%
+--> POST /api/v1/responses [32m200[0m 2s
+--> POST /v1/responses [32m200[0m 2s
+[00:49:23] 🌊 [STREAM] CODEX | gpt-5.4 | 36533ms | disconnect: cancelled
+[00:49:23] [PENDING] END | provider=codex | model=gpt-5.4
+<-- POST /v1/responses
+<-- POST /api/v1/responses
+[36m[00:49:23] 📥 POST /api/v1/responses | gpt-5.4 | 141 msgs | 11 tools | effort=xhigh[0m
+[00:49:23] 🔍 [AUTH] API Key: sk_9...uter
+[00:49:23] ℹ️  [ROUTING] gpt-5.4 → codex/gpt-5.4
+[00:49:23] 🔍 [AUTH] codex | total connections: 10, excludeIds: none, model: gpt-5.4
+[00:49:23] 🔍 [AUTH] codex | available: 5/10
+[00:49:23] 🔍 [AUTH]   → 20e2684a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:46.048Z
+[00:49:23] 🔍 [AUTH]   → ccb01920 |  modelLocked(gpt-5.4) until 2026-05-13T18:06:04.461Z
+[00:49:23] 🔍 [AUTH]   → df92be61 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:41.681Z
+[00:49:23] 🔍 [AUTH]   → 209f8c0a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:43.458Z
+[00:49:23] 🔍 [AUTH]   → d8cdb1d4 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:44.866Z
+[00:49:23] ℹ️  [AUTH] [32mUsing codex account: shopdonix@gmail.com[0m
+[00:49:23] 🔍 [FORMAT] openai-responses → openai-responses | stream=true
+[RTK] saved 7120B / 269940B (2.6%) via [dedup-log,git-status] hits=6
+[00:49:23] [PENDING] START | provider=codex | model=gpt-5.4
+[00:49:23] 🔍 [REQUEST] CODEX | gpt-5.4 | 141 msgs
+[00:49:25] 🔍 [QUOTA] passive: primary=100% secondary=0%
+--> POST /api/v1/responses [32m200[0m 2s
+--> POST /v1/responses [32m200[0m 2s
+[00:49:36] [PENDING] END | provider=codex | model=gpt-5.4
+[00:49:36] 📊 [32m[USAGE] CODEX | in=113268 | out=395 | account=d7a491a8...[0m | cache_read=110976 | reasoning=123
+[32m[00:49:36] 📊 [STREAM USAGE] CODEX | in=113268 | out=395 | account=d7a491a8...[0m
+[00:49:36] 🔍 [AFFINITY] recorded 94565439 → conn=d7a491a8
+[00:49:36] 🌊 [STREAM] CODEX | gpt-5.4 | 12850ms | complete
+<-- POST /v1/responses
+<-- POST /api/v1/responses
+[36m[00:49:36] 📥 POST /api/v1/responses | gpt-5.4 | 149 msgs | 11 tools | effort=xhigh[0m
+[00:49:36] 🔍 [AUTH] API Key: sk_9...uter
+[00:49:36] ℹ️  [ROUTING] gpt-5.4 → codex/gpt-5.4
+[00:49:36] 🔍 [AUTH] codex | total connections: 10, excludeIds: none, model: gpt-5.4
+[00:49:36] 🔍 [AUTH] codex | available: 5/10
+[00:49:36] 🔍 [AUTH]   → 20e2684a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:46.048Z
+[00:49:36] 🔍 [AUTH]   → ccb01920 |  modelLocked(gpt-5.4) until 2026-05-13T18:06:04.461Z
+[00:49:36] 🔍 [AUTH]   → df92be61 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:41.681Z
+[00:49:36] 🔍 [AUTH]   → 209f8c0a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:43.458Z
+[00:49:36] 🔍 [AUTH]   → d8cdb1d4 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:44.866Z
+[00:49:36] ℹ️  [AUTH] [32mUsing codex account: donged7106@gmail.com[0m
+[00:49:36] 🔍 [FORMAT] openai-responses → openai-responses | stream=true
+[RTK] saved 7120B / 270395B (2.6%) via [dedup-log,git-status] hits=6
+[00:49:36] [PENDING] START | provider=codex | model=gpt-5.4
+[00:49:36] 🔍 [REQUEST] CODEX | gpt-5.4 | 149 msgs
+<-- GET /assets/page-BuISt-yB.js
+--> GET /assets/page-BuISt-yB.js [32m200[0m 1ms
+<-- GET /api/auth/status
+--> GET /api/auth/status [32m200[0m 0ms
+<-- GET /api/providers
+--> GET /api/providers [32m200[0m 1ms
+<-- GET /api/settings
+--> GET /api/settings [32m200[0m 0ms
+<-- GET /api/keys
+--> GET /api/keys [32m200[0m 0ms
+<-- GET /api/tunnel/status
+--> GET /api/tunnel/status [32m200[0m 1ms
+<-- GET /api/cli-tools/all-statuses
+<-- GET /i18n/literals/vi.json
+--> GET /i18n/literals/vi.json [32m200[0m 3ms
+<-- GET /api/settings
+--> GET /api/settings [32m200[0m 0ms
+--> GET /api/cli-tools/all-statuses [32m200[0m 344ms
+[00:49:37] 🔍 [QUOTA] passive: primary=14% secondary=45%
+--> POST /api/v1/responses [32m200[0m 1s
+--> POST /v1/responses [32m200[0m 1s
+<-- GET /dashboard/cli-tools
+--> GET /dashboard/cli-tools [32m200[0m 3ms
+<-- GET /assets/index-NYTn_BGT.js
+--> GET /assets/index-NYTn_BGT.js [32m200[0m 1ms
+<-- GET /assets/index-C45TsFMC.css
+--> GET /assets/index-C45TsFMC.css [32m200[0m 0ms
+<-- GET /api/models
+--> GET /api/models [32m200[0m 1ms
+<-- GET /assets/Loading-HlSKhJAW.js
+--> GET /assets/Loading-HlSKhJAW.js [32m200[0m 1ms
+<-- GET /assets/page-BuISt-yB.js
+--> GET /assets/page-BuISt-yB.js [32m200[0m 1ms
+<-- GET /api/settings
+--> GET /api/settings [32m200[0m 1ms
+<-- GET /api/auth/status
+--> GET /api/auth/status [32m200[0m 1ms
+<-- GET /api/version
+<-- GET /i18n/literals/vi.json
+--> GET /i18n/literals/vi.json [32m200[0m 1ms
+<-- GET /api/settings
+--> GET /api/settings [32m200[0m 1ms
+<-- GET /i18n/literals/vi.json
+--> GET /i18n/literals/vi.json [32m200[0m 1ms
+--> GET /api/version [32m200[0m 168ms
+<-- GET /api/version
+--> GET /api/version [32m200[0m 46ms
+<-- GET /api/providers
+--> GET /api/providers [32m200[0m 1ms
+<-- GET /api/settings
+--> GET /api/settings [32m200[0m 1ms
+<-- GET /api/tunnel/status
+--> GET /api/tunnel/status [32m200[0m 1ms
+<-- GET /api/keys
+--> GET /api/keys [32m200[0m 0ms
+<-- GET /api/cli-tools/all-statuses
+<-- GET /api/settings
+--> GET /api/settings [32m200[0m 1ms
+--> GET /api/cli-tools/all-statuses [32m200[0m 354ms
+[00:49:44] [PENDING] END | provider=codex | model=gpt-5.4
+[00:49:44] 📊 [32m[USAGE] CODEX | in=113843 | out=80 | account=dc229077...[0m | cache_read=9088 | reasoning=30
+[32m[00:49:44] 📊 [STREAM USAGE] CODEX | in=113843 | out=80 | account=dc229077...[0m
+[00:49:44] 🔍 [AFFINITY] recorded 94577978 → conn=dc229077
+[00:49:44] 🌊 [STREAM] CODEX | gpt-5.4 | 8414ms | complete
+<-- POST /v1/responses
+<-- POST /api/v1/responses
+[36m[00:49:54] 📥 POST /api/v1/responses | gpt-5.4 | 152 msgs | 11 tools | effort=xhigh[0m
+[00:49:54] 🔍 [AUTH] API Key: sk_9...uter
+[00:49:54] ℹ️  [ROUTING] gpt-5.4 → codex/gpt-5.4
+[00:49:54] 🔍 [AUTH] codex | total connections: 10, excludeIds: none, model: gpt-5.4
+[00:49:54] 🔍 [AUTH] codex | available: 5/10
+[00:49:54] 🔍 [AUTH]   → 20e2684a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:46.048Z
+[00:49:54] 🔍 [AUTH]   → ccb01920 |  modelLocked(gpt-5.4) until 2026-05-13T18:06:04.461Z
+[00:49:54] 🔍 [AUTH]   → df92be61 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:41.681Z
+[00:49:54] 🔍 [AUTH]   → 209f8c0a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:43.458Z
+[00:49:54] 🔍 [AUTH]   → d8cdb1d4 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:44.866Z
+[00:49:54] ℹ️  [AUTH] [32mUsing codex account: minhdong.contact@gmail.com[0m
+[00:49:54] 🔍 [FORMAT] openai-responses → openai-responses | stream=true
+[RTK] saved 7121B / 275190B (2.6%) via [dedup-log,git-status] hits=7
+[00:49:54] [PENDING] START | provider=codex | model=gpt-5.4
+[00:49:54] 🔍 [REQUEST] CODEX | gpt-5.4 | 152 msgs
+[00:49:55] 🔍 [QUOTA] passive: primary=69% secondary=0%
+--> POST /api/v1/responses [32m200[0m 1s
+--> POST /v1/responses [32m200[0m 1s
+<-- GET /dashboard/cli-tools
+--> GET /dashboard/cli-tools [32m200[0m 1ms
+<-- GET /assets/index-BVJ5f-SW.js
+--> GET /assets/index-BVJ5f-SW.js [32m200[0m 1ms
+<-- GET /assets/index-DlT671LG.css
+--> GET /assets/index-DlT671LG.css [32m200[0m 0ms
+<-- GET /api/models
+--> GET /api/models [32m200[0m 1ms
+<-- GET /assets/page-BwE-LSnK.js
+--> GET /assets/page-BwE-LSnK.js [32m200[0m 1ms
+<-- GET /assets/Loading-CQr23WD7.js
+--> GET /assets/Loading-CQr23WD7.js [32m200[0m 1ms
+<-- GET /assets/cliTools-CXlPVsxP.js
+--> GET /assets/cliTools-CXlPVsxP.js [32m200[0m 2ms
+<-- GET /api/settings
+--> GET /api/settings [32m200[0m 0ms
+<-- GET /api/auth/status
+--> GET /api/auth/status [32m200[0m 1ms
+<-- GET /api/version
+<-- GET /i18n/literals/vi.json
+--> GET /i18n/literals/vi.json [32m200[0m 0ms
+<-- GET /api/settings
+--> GET /api/settings [32m200[0m 1ms
+--> GET /api/version [32m200[0m 148ms
+<-- GET /api/version
+--> GET /api/version [32m200[0m 56ms
+<-- GET /i18n/literals/vi.json
+--> GET /i18n/literals/vi.json [32m200[0m 0ms
+<-- GET /api/providers
+--> GET /api/providers [32m200[0m 1ms
+<-- GET /api/settings
+--> GET /api/settings [32m200[0m 1ms
+<-- GET /api/tunnel/status
+--> GET /api/tunnel/status [32m200[0m 1ms
+<-- GET /api/keys
+--> GET /api/keys [32m200[0m 0ms
+<-- GET /api/cli-tools/all-statuses
+<-- GET /providers/gemini.png
+--> GET /providers/gemini.png [32m200[0m 3ms
+<-- GET /api/settings
+--> GET /api/settings [32m200[0m 1ms
+--> GET /api/cli-tools/all-statuses [32m200[0m 364ms
+[00:50:09] [PENDING] END | provider=codex | model=gpt-5.4
+[00:50:09] 📊 [32m[USAGE] CODEX | in=116454 | out=574 | account=a9be1da5...[0m | cache_read=113024 | reasoning=274
+[32m[00:50:09] 📊 [STREAM USAGE] CODEX | in=116454 | out=574 | account=a9be1da5...[0m
+[00:50:09] 🔍 [AFFINITY] recorded 94595920 → conn=a9be1da5
+[00:50:09] 🌊 [STREAM] CODEX | gpt-5.4 | 15297ms | complete
+<-- POST /v1/responses
+<-- POST /api/v1/responses
+[36m[00:50:10] 📥 POST /api/v1/responses | gpt-5.4 | 158 msgs | 11 tools | effort=xhigh[0m
+[00:50:10] 🔍 [AUTH] API Key: sk_9...uter
+[00:50:10] ℹ️  [ROUTING] gpt-5.4 → codex/gpt-5.4
+[00:50:10] 🔍 [AUTH] codex | total connections: 10, excludeIds: none, model: gpt-5.4
+[00:50:10] 🔍 [AUTH] codex | available: 5/10
+[00:50:10] 🔍 [AUTH]   → 20e2684a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:46.048Z
+[00:50:10] 🔍 [AUTH]   → ccb01920 |  modelLocked(gpt-5.4) until 2026-05-13T18:06:04.461Z
+[00:50:10] 🔍 [AUTH]   → df92be61 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:41.681Z
+[00:50:10] 🔍 [AUTH]   → 209f8c0a |  modelLocked(gpt-5.4) until 2026-05-13T18:09:43.458Z
+[00:50:10] 🔍 [AUTH]   → d8cdb1d4 |  modelLocked(gpt-5.4) until 2026-05-13T18:09:44.866Z
+[00:50:10] ℹ️  [AUTH] [32mUsing codex account: Account 2[0m
+[00:50:10] 🔍 [FORMAT] openai-responses → openai-responses | stream=true
+[RTK] saved 7121B / 275416B (2.6%) via [dedup-log,git-status] hits=7
+[00:50:10] [PENDING] START | provider=codex | model=gpt-5.4
+[00:50:10] 🔍 [REQUEST] CODEX | gpt-5.4 | 158 msgs
+[00:50:12] 🔍 [QUOTA] passive: primary=1% secondary=100%
+--> POST /api/v1/responses [32m200[0m 2s
+--> POST /v1/responses [32m200[0m 2s
+[00:50:20] 🌊 [STREAM] CODEX | gpt-5.4 | 9293ms | disconnect: cancelled
+[00:50:20] [PENDING] END | provider=codex | model=gpt-5.4

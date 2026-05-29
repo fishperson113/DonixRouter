@@ -1,0 +1,68 @@
+"use client";
+
+import { cn } from "#shared/utils/cn.js";
+
+export default function Select({
+  label,
+  options = [],
+  value,
+  onChange,
+  placeholder = "Select an option",
+  error,
+  hint,
+  disabled = false,
+  required = false,
+  className,
+  selectClassName,
+  ...props
+}) {
+  return (
+    <div className={cn("flex flex-col gap-1.5", className)}>
+      {label && (
+        <label className="text-sm font-medium tracking-[-0.01em] text-text-main">
+          {label}
+          {required && <span className="text-red-500 ml-1">*</span>}
+        </label>
+      )}
+      <div className="relative">
+        <select
+          value={value}
+          onChange={onChange}
+          disabled={disabled}
+          className={cn(
+            "w-full appearance-none rounded-[14px] border px-3.5 py-2.5 pr-10 text-sm text-text-main backdrop-blur-md",
+            "border-white/45 bg-white/74 dark:border-white/8 dark:bg-[rgba(255,255,255,0.035)]",
+            "shadow-[inset_0_1px_0_rgba(255,255,255,0.82)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]",
+            "focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500/45 dark:focus:border-brand-500/35 dark:focus:bg-[rgba(255,255,255,0.045)]",
+            "transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed",
+            "text-[16px] sm:text-sm",
+            error && "ring-1 ring-red-500 focus:ring-2 focus:ring-red-500/40 border-red-500/40",
+            selectClassName
+          )}
+          {...props}
+        >
+          <option value="" disabled>
+            {placeholder}
+          </option>
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+        <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-text-muted">
+          <span className="material-symbols-outlined text-[20px]">expand_more</span>
+        </div>
+      </div>
+      {error && (
+        <p className="text-xs text-red-500 flex items-center gap-1">
+          <span className="material-symbols-outlined text-[14px]">error</span>
+          {error}
+        </p>
+      )}
+      {hint && !error && (
+        <p className="text-xs text-text-muted">{hint}</p>
+      )}
+    </div>
+  );
+}

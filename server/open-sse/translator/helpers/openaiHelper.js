@@ -1,0 +1,153 @@
+// OpenAI helper functions for translator
+
+// Valid OpenAI content block types
+export const VALID_OPENAI_CONTENT_TYPES = ["text", "image_url", "image", "input_audio", "audio_url"];
+export const VALID_OPENAI_MESSAGE_TYPES = ["text", "image_url", "image", "tool_calls", "tool_result"];
+
+// Filter messages to OpenAI standard format
+// Remove: thinking, redacted_thinking, signature, and other non-OpenAI blocks
+export function filterToOpenAIFormat(body) {
+  if (!body.messages || !Array.isArray(body.messages)) return body;
+  
+  body.messages = body.messages.map(msg => {
+    // Normalize developer role to system (many providers don't support developer)
+    if (msg.role === "developer") msg = { ...msg, role: "system" };
+    
+    // Keep tool messages as-is (OpenAI format)
+    if (msg.role === "tool") return msg;
+    
+    // Keep assistant messages with tool_calls as-is
+    if (msg.role === "assistant" && msg.tool_calls) return msg;
+    
+    // Handle string content
+    if (typeof msg.content === "string") return msg;
+    
+    // Handle array content
+    if (Array.isArray(msg.content)) {
+      const filteredContent = [];
+      
+      for (const block of msg.content) {
+        // Skip thinking blocks
+        if (block.type === "thinking" || block.type === "redacted_thinking") continue;
+        
+        // Only keep valid OpenAI content types
+        if (VALID_OPENAI_CONTENT_TYPES.includes(block.type)) {
+          // Remove signature field if exists
+          const { signature, cache_control, ...cleanBlock } = block;
+          filteredContent.push(cleanBlock);
+        } else if (block.type === "tool_use") {
+          // Convert tool_use to tool_calls format (handled separately)
+          continue;
+        } else if (block.type === "tool_result") {
+          // Keep tool_result but clean it
+          const { signature, cache_control, ...cleanBlock } = block;
+          filteredContent.push(cleanBlock);
+        }
+      }
+      
+      // If all content was filtered, add empty text
+      if (filteredContent.length === 0) {
+        filteredContent.push({ type: "text", text: "" });
+      }
+      
+      return { ...msg, content: filteredContent };
+    }
+    
+    return msg;
+  });
+  
+  // Filter out messages with only empty text (but NEVER filter tool messages)
+  body.messages = body.messages.filter(msg => {
+    // Always keep tool messages
+    if (msg.role === "tool") return true;
+    // Always keep assistant messages with tool_calls
+    if (msg.role === "assistant" && msg.tool_calls) return true;
+    
+    if (typeof msg.content === "string") return msg.content.trim() !== "";
+    if (Array.isArray(msg.content)) {
+      return msg.content.some(b => 
+        (b.type === "text" && b.text?.trim()) ||
+        b.type !== "text"
+      );
+    }
+    return true;
+  });
+
+  // Remove empty tools array (some providers like QWEN reject it)
+  if (body.tools && Array.isArray(body.tools) && body.tools.length === 0) {
+    delete body.tools;
+  }
+
+  // Normalize tools to OpenAI format (from Claude, Gemini, Cursor flat-style, etc.)
+  if (body.tools && Array.isArray(body.tools) && body.tools.length > 0) {
+    body.tools = body.tools.map(tool => {
+      // Already OpenAI format
+      if (tool.type === "function" && tool.function) return tool;
+
+      // Cursor-style flat function/custom tool: { type: "function"|"custom", name, description, parameters|input_schema }
+      // (#508) — clients send Responses-style tools to /chat/completions; nest them.
+      if ((tool.type === "function" || tool.type === "custom") && typeof tool.name === "string" && tool.name) {
+        const fn = { name: tool.name };
+        if (typeof tool.description === "string") fn.description = tool.description;
+        const params = tool.parameters || tool.input_schema || tool.schema;
+        if (params && typeof params === "object") fn.parameters = params;
+        if (typeof tool.strict === "boolean") fn.strict = tool.strict;
+        return { type: "function", function: fn };
+      }
+
+      // Claude format: {name, description, input_schema}
+      if (tool.name && (tool.input_schema || tool.description)) {
+        return {
+          type: "function",
+          function: {
+            name: tool.name,
+            description: String(tool.description || ""),
+            parameters: tool.input_schema || { type: "object", properties: {} }
+          }
+        };
+      }
+      
+      // Gemini format: {functionDeclarations: [{name, description, parameters}]}
+      if (tool.functionDeclarations && Array.isArray(tool.functionDeclarations)) {
+        return tool.functionDeclarations.map(fn => ({
+          type: "function",
+          function: {
+            name: fn.name,
+            description: String(fn.description || ""),
+            parameters: fn.parameters || { type: "object", properties: {} }
+          }
+        }));
+      }
+      
+      return tool;
+    }).flat();
+  }
+
+  // Cursor-style reasoning.effort → reasoning_effort (#508)
+  // Only fill if client didn't already supply reasoning_effort.
+  if (body.reasoning_effort === undefined && body.reasoning && typeof body.reasoning === "object") {
+    const eff = body.reasoning.effort;
+    if (eff === "low" || eff === "medium" || eff === "high" || eff === "xhigh") {
+      body.reasoning_effort = eff;
+    }
+  }
+
+  // Normalize tool_choice to OpenAI format
+  if (body.tool_choice && typeof body.tool_choice === "object") {
+    const choice = body.tool_choice;
+    // Claude format: {type: "auto|any|tool", name?: "..."}
+    if (choice.type === "auto") {
+      body.tool_choice = "auto";
+    } else if (choice.type === "any") {
+      body.tool_choice = "required";
+    } else if (choice.type === "tool" && choice.name) {
+      body.tool_choice = { type: "function", function: { name: choice.name } };
+    } else if ((choice.type === "function" || choice.type === "custom") && typeof choice.name === "string" && !choice.function) {
+      // Cursor-style flat function tool_choice: { type: "function", name: "..." } (#508)
+      body.tool_choice = { type: "function", function: { name: choice.name } };
+    }
+  }
+
+  return body;
+}
+

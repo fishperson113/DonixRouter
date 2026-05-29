@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1a1f2e"/>
+      <stop offset="100%" stop-color="#0a0c12"/>
+    </radialGradient>
+    <filter id="glow-cyan" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="0.6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-blue" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="0.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-orange" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="0.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-pink" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="0.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="grad-left" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff8c00"/>
+      <stop offset="100%" stop-color="#cc44ff"/>
+    </linearGradient>
+    <linearGradient id="grad-right" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8844ff"/>
+      <stop offset="100%" stop-color="#2299ff"/>
+    </linearGradient>
+    <linearGradient id="grad-bottom" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#cc44ff"/>
+      <stop offset="100%" stop-color="#ff3399"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background rounded rect -->
+  <rect width="32" height="32" rx="7" fill="url(#bg)"/>
+
+  <!-- Center hexagon -->
+  <polygon points="16,12 18.6,13.5 18.6,16.5 16,18 13.4,16.5 13.4,13.5"
+    fill="#0ff" fill-opacity="0.15" stroke="#00ddff" stroke-width="0.7" filter="url(#glow-cyan)"/>
+
+  <!-- Top stem -->
+  <line x1="16" y1="13" x2="16" y2="7" stroke="#00ddff" stroke-width="0.9" stroke-linecap="round" filter="url(#glow-cyan)"/>
+  <circle cx="16" cy="6.2" r="1.5" fill="none" stroke="#00ddff" stroke-width="0.9" filter="url(#glow-cyan)"/>
+
+  <!-- Top left arc lines -->
+  <path d="M14 13 Q10 11 9 9" fill="none" stroke="#2277ff" stroke-width="0.7" stroke-linecap="round" filter="url(#glow-blue)"/>
+  <path d="M13.5 14 Q9.5 12.5 8.5 11" fill="none" stroke="#2277ff" stroke-width="0.55" stroke-linecap="round" opacity="0.7" filter="url(#glow-blue)"/>
+
+  <!-- Top right arc lines -->
+  <path d="M18 13 Q22 11 23 9" fill="none" stroke="#2277ff" stroke-width="0.7" stroke-linecap="round" filter="url(#glow-blue)"/>
+  <path d="M18.5 14 Q22.5 12.5 23.5 11" fill="none" stroke="#2277ff" stroke-width="0.55" stroke-linecap="round" opacity="0.7" filter="url(#glow-blue)"/>
+
+  <!-- Left arm -->
+  <path d="M13.4 15 L11 15 L8 15" fill="none" stroke="url(#grad-left)" stroke-width="0.9" stroke-linecap="round" filter="url(#glow-orange)"/>
+  <circle cx="6.8" cy="15" r="1.5" fill="none" stroke="#ff8c00" stroke-width="0.9" filter="url(#glow-orange)"/>
+
+  <!-- Right arm -->
+  <path d="M18.6 15 L21 15 L24 15" fill="none" stroke="url(#grad-right)" stroke-width="0.9" stroke-linecap="round" filter="url(#glow-blue)"/>
+  <circle cx="25.2" cy="15" r="1.5" fill="none" stroke="#2299ff" stroke-width="0.9" filter="url(#glow-blue)"/>
+
+  <!-- Bottom stem -->
+  <line x1="16" y1="18" x2="16" y2="25" stroke="url(#grad-bottom)" stroke-width="0.9" stroke-linecap="round" filter="url(#glow-pink)"/>
+  <circle cx="16" cy="26" r="1.5" fill="none" stroke="#ff3399" stroke-width="0.9" filter="url(#glow-pink)"/>
+
+  <!-- Bottom left arc lines -->
+  <path d="M14 17.5 Q10 19.5 9 22" fill="none" stroke="#aa33ff" stroke-width="0.7" stroke-linecap="round" filter="url(#glow-pink)"/>
+  <path d="M13.5 17 Q9.5 19 8.5 22" fill="none" stroke="#aa33ff" stroke-width="0.55" stroke-linecap="round" opacity="0.7" filter="url(#glow-pink)"/>
+
+  <!-- Bottom right arc lines -->
+  <path d="M18 17.5 Q22 19.5 23 22" fill="none" stroke="#7733ff" stroke-width="0.7" stroke-linecap="round" filter="url(#glow-pink)"/>
+  <path d="M18.5 17 Q22.5 19 23.5 22" fill="none" stroke="#7733ff" stroke-width="0.55" stroke-linecap="round" opacity="0.7" filter="url(#glow-pink)"/>
+
+  <!-- Dot grid top -->
+  <circle cx="15" cy="9.5" r="0.4" fill="#00ccff" opacity="0.6"/>
+  <circle cx="16" cy="9.5" r="0.4" fill="#00ccff" opacity="0.6"/>
+  <circle cx="17" cy="9.5" r="0.4" fill="#00ccff" opacity="0.6"/>
+  <circle cx="15" cy="10.8" r="0.4" fill="#00ccff" opacity="0.4"/>
+  <circle cx="17" cy="10.8" r="0.4" fill="#00ccff" opacity="0.4"/>
+
+  <!-- Dot grid bottom -->
+  <circle cx="15" cy="20.5" r="0.4" fill="#ff44bb" opacity="0.6"/>
+  <circle cx="16" cy="20.5" r="0.4" fill="#ff44bb" opacity="0.6"/>
+  <circle cx="17" cy="20.5" r="0.4" fill="#ff44bb" opacity="0.6"/>
+  <circle cx="15" cy="21.8" r="0.4" fill="#ff44bb" opacity="0.4"/>
+  <circle cx="17" cy="21.8" r="0.4" fill="#ff44bb" opacity="0.4"/>
+
+  <!-- Center hex glow fill -->
+  <polygon points="16,12.5 18.1,13.8 18.1,16.2 16,17.5 13.9,16.2 13.9,13.8"
+    fill="#00eeff" fill-opacity="0.08"/>
+  <polygon points="16,13.2 17.5,14.1 17.5,15.9 16,16.8 14.5,15.9 14.5,14.1"
+    fill="#00eeff" fill-opacity="0.25" filter="url(#glow-cyan)"/>
+</svg>
