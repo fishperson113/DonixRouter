@@ -90,6 +90,31 @@ function isKiroAuthTokenInvalid(status, bodyText) {
     || lower.includes("unauthorized");
 }
 
+function normalizeKiroToolArguments(toolName, args) {
+  if (!args || typeof args !== "object" || Array.isArray(args)) return args;
+
+  const normalized = { ...args };
+  if (toolName === "Read") {
+    if (normalized.file_path === undefined) {
+      normalized.file_path = normalized.filePath ?? normalized.path ?? normalized.filename;
+    }
+    delete normalized.filePath;
+    delete normalized.path;
+    delete normalized.filename;
+    if (normalized.pages === "") delete normalized.pages;
+  }
+  return normalized;
+}
+
+function parseJsonObject(text) {
+  try {
+    const parsed = JSON.parse(text);
+    return parsed && typeof parsed === "object" && !Array.isArray(parsed) ? parsed : null;
+  } catch {
+    return null;
+  }
+}
+
 /**
  * Halve a Kiro payload's history in place by dropping the oldest user/assistant
  * pair(s). If the history starts with a virtual <system-instructions> turn
@@ -299,6 +324,9 @@ export class KiroExecutor extends BaseExecutor {
       hasToolCalls: false,
       toolCallIndex: 0,
       seenToolIds: new Map(),
+      pendingToolNames: new Map(),
+      pendingToolInputs: new Map(),
+      skippedIncompleteToolUse: false,
       totalContentLength: 0,
       contextUsagePercentage: 0,
       hasContextUsage: false,
@@ -306,6 +334,7 @@ export class KiroExecutor extends BaseExecutor {
       stopEventReceived: false,
       streamAborted: false,
       doneSent: false,
+      hasMeaningfulDelta: false,
     };
 
     const safeEnqueue = (controller, bytes) => {
@@ -339,6 +368,10 @@ export class KiroExecutor extends BaseExecutor {
       const hasMeteringPair = state.hasMeteringEvent && state.hasContextUsage;
       const ready = state.stopEventReceived && hasMeteringPair;
       if (!force && !ready) return;
+      const hasIncompleteToolUse = state.skippedIncompleteToolUse
+        || state.pendingToolInputs.size > 0
+        || (state.pendingToolNames.size > 0 && !state.hasToolCalls);
+      if (!force && (hasIncompleteToolUse || !state.hasMeaningfulDelta)) return;
 
       state.finishEmitted = true;
 
@@ -431,6 +464,7 @@ export class KiroExecutor extends BaseExecutor {
 
         if (eventType === "assistantResponseEvent" && event.payload?.content) {
           const content = event.payload.content;
+          state.hasMeaningfulDelta = true;
           state.totalContentLength += content.length;
           writeChunk(controller, {
             id: responseId,
@@ -450,6 +484,7 @@ export class KiroExecutor extends BaseExecutor {
         }
 
         if (eventType === "codeEvent" && event.payload?.content) {
+          state.hasMeaningfulDelta = true;
           writeChunk(controller, {
             id: responseId,
             object: "chat.completion.chunk",
@@ -466,74 +501,77 @@ export class KiroExecutor extends BaseExecutor {
         }
 
         if (eventType === "toolUseEvent" && event.payload) {
-          state.hasToolCalls = true;
           const toolUse = event.payload;
           const toolUses = Array.isArray(toolUse) ? toolUse : [toolUse];
 
           for (const singleToolUse of toolUses) {
             const toolCallId = singleToolUse.toolUseId || `call_${Date.now()}`;
-            const toolName = singleToolUse.name || "";
+            const toolName = singleToolUse.name || state.pendingToolNames.get(toolCallId) || "";
+            if (singleToolUse.name) state.pendingToolNames.set(toolCallId, singleToolUse.name);
             const toolInput = singleToolUse.input;
 
-            let toolIndex;
-            const isNewTool = !state.seenToolIds.has(toolCallId);
-
-            if (isNewTool) {
-              toolIndex = state.toolCallIndex++;
-              state.seenToolIds.set(toolCallId, toolIndex);
-
-              writeChunk(controller, {
-                id: responseId,
-                object: "chat.completion.chunk",
-                created,
-                model,
-                choices: [{
-                  index: 0,
-                  delta: {
-                    ...(chunkIndex === 0 ? { role: "assistant" } : {}),
-                    tool_calls: [{
-                      index: toolIndex,
-                      id: toolCallId,
-                      type: "function",
-                      function: { name: toolName, arguments: "" }
-                    }]
-                  },
-                  finish_reason: null
-                }]
-              });
-              chunkIndex++;
-            } else {
-              toolIndex = state.seenToolIds.get(toolCallId);
+            if (toolInput === undefined || toolInput === null) {
+              continue;
             }
 
-            if (toolInput !== undefined) {
-              let argumentsStr;
-              if (typeof toolInput === "string") {
-                argumentsStr = toolInput;
-              } else if (toolInput && typeof toolInput === "object") {
-                argumentsStr = JSON.stringify(toolInput);
-              } else {
+            if (!toolName) {
+              state.skippedIncompleteToolUse = true;
+              console.warn(`[Kiro] Skipping incomplete toolUseEvent for ${toolCallId}: missing tool name`);
+              continue;
+            }
+
+            let parsedArgs;
+            if (typeof toolInput === "string") {
+              const inputFragment = toolInput;
+              if (!inputFragment.trim()) continue;
+
+              const combinedInput = (state.pendingToolInputs.get(toolCallId) || "") + inputFragment;
+              parsedArgs = parseJsonObject(combinedInput.trim());
+              if (!parsedArgs) {
+                state.pendingToolInputs.set(toolCallId, combinedInput);
                 continue;
               }
-
-              writeChunk(controller, {
-                id: responseId,
-                object: "chat.completion.chunk",
-                created,
-                model,
-                choices: [{
-                  index: 0,
-                  delta: {
-                    tool_calls: [{
-                      index: toolIndex,
-                      function: { arguments: argumentsStr }
-                    }]
-                  },
-                  finish_reason: null
-                }]
-              });
-              chunkIndex++;
+              state.pendingToolInputs.delete(toolCallId);
+            } else if (toolInput && typeof toolInput === "object" && !Array.isArray(toolInput)) {
+              parsedArgs = toolInput;
+              state.pendingToolInputs.delete(toolCallId);
+            } else {
+              state.skippedIncompleteToolUse = true;
+              console.warn(`[Kiro] Skipping incomplete toolUseEvent for ${toolName || toolCallId}: input is not a JSON object`);
+              continue;
             }
+
+            const argumentsStr = JSON.stringify(normalizeKiroToolArguments(toolName, parsedArgs));
+
+            const isNewTool = !state.seenToolIds.has(toolCallId);
+            const toolIndex = isNewTool ? state.toolCallIndex++ : state.seenToolIds.get(toolCallId);
+            if (isNewTool) state.seenToolIds.set(toolCallId, toolIndex);
+            state.pendingToolNames.delete(toolCallId);
+
+            state.hasToolCalls = true;
+            state.hasMeaningfulDelta = true;
+            writeChunk(controller, {
+              id: responseId,
+              object: "chat.completion.chunk",
+              created,
+              model,
+              choices: [{
+                index: 0,
+                delta: {
+                  ...(chunkIndex === 0 ? { role: "assistant" } : {}),
+                  tool_calls: [{
+                    index: toolIndex,
+                    ...(isNewTool ? { id: toolCallId, type: "function" } : {}),
+                    function: {
+                      ...(isNewTool ? { name: toolName } : {}),
+                      arguments: argumentsStr
+                    }
+                  }]
+                },
+                finish_reason: null
+              }]
+            });
+            chunkIndex++;
           }
           continue;
         }
@@ -635,6 +673,16 @@ export class KiroExecutor extends BaseExecutor {
           closed = true;
           clearInterval(pingTimer);
           clearInterval(stallTimer);
+          const hasIncompleteToolUse = state.skippedIncompleteToolUse
+            || state.pendingToolInputs.size > 0
+            || (state.pendingToolNames.size > 0 && !state.hasToolCalls);
+          if (!state.finishEmitted && !state.streamAborted && hasIncompleteToolUse) {
+            emitErrorChunk(controller, "upstream ended before complete tool parameters");
+            state.stopEventReceived = true;
+          } else if (!state.finishEmitted && !state.streamAborted && !state.hasMeaningfulDelta) {
+            emitErrorChunk(controller, "upstream ended without content");
+            state.stopEventReceived = true;
+          }
           if (!state.finishEmitted) emitFinish(controller, { force: true });
           emitDone(controller);
           try { controller.close(); } catch { /* already closed */ }
@@ -668,9 +716,18 @@ export class KiroExecutor extends BaseExecutor {
         } catch (err) {
           // Upstream socket reset / fetch body error — most common cause of
           // "broken chunk" symptoms in long sessions. Recover gracefully.
-          console.warn(`[Kiro] upstream body read error: ${err?.message || err}`);
+          const message = String(err?.message || err || "unknown");
+          const hasIncompleteToolUse = state.skippedIncompleteToolUse
+            || state.pendingToolInputs.size > 0
+            || (state.pendingToolNames.size > 0 && !state.hasToolCalls);
+          const benignAfterDelta = state.hasMeaningfulDelta
+            && !hasIncompleteToolUse
+            && /terminated|aborted|premature close|socket|econnreset/i.test(message);
+          console.warn(`[Kiro] upstream body read error: ${message}${benignAfterDelta ? " (finishing with partial upstream data)" : ""}`);
           if (!state.finishEmitted) {
-            emitErrorChunk(controller, `upstream interrupted: ${err?.message || "unknown"}`);
+            if (!benignAfterDelta) {
+              emitErrorChunk(controller, `upstream interrupted: ${message}`);
+            }
             state.stopEventReceived = true;
             emitFinish(controller, { force: true });
           }
