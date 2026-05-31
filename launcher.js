@@ -17,6 +17,22 @@ import { fileURLToPath } from "url";
 import { readFileSync, writeFileSync } from "fs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+
+// Load .env file from project root (if exists)
+try {
+  const envContent = readFileSync(join(__dirname, ".env"), "utf-8");
+  for (const rawLine of envContent.split("\n")) {
+    const line = rawLine.trim();
+    if (!line || line.startsWith("#")) continue;
+    const eqIdx = line.indexOf("=");
+    if (eqIdx === -1) continue;
+    const k = line.slice(0, eqIdx).trim();
+    let v = line.slice(eqIdx + 1).trim();
+    if ((v.startsWith('"') && v.endsWith('"')) || (v.startsWith("'") && v.endsWith("'"))) v = v.slice(1, -1);
+    if (!process.env[k]) process.env[k] = v;
+  }
+} catch { /* .env not found — use defaults */ }
+
 const VERSION = (() => {
   try { return JSON.parse(readFileSync(join(__dirname, "package.json"), "utf8")).version; }
   catch { return "1.0.0"; }

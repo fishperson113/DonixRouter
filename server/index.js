@@ -13,6 +13,7 @@ import { logger } from "hono/logger";
 import { networkInterfaces } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { readFileSync } from "node:fs";
 
 import { errorHandler } from "./middleware/errorHandler.js";
 import { loopbackCors } from "./middleware/cors.js";
@@ -30,6 +31,22 @@ initConsoleLogCapture();
 installUncaughtErrorHandlers("server");
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+
+// Load .env file from project root (if exists)
+try {
+  const envPath = join(__dirname, "..", ".env");
+  const envContent = readFileSync(envPath, "utf-8");
+  for (const rawLine of envContent.split("\n")) {
+    const line = rawLine.trim();
+    if (!line || line.startsWith("#")) continue;
+    const eqIdx = line.indexOf("=");
+    if (eqIdx === -1) continue;
+    const k = line.slice(0, eqIdx).trim();
+    let v = line.slice(eqIdx + 1).trim();
+    if ((v.startsWith('"') && v.endsWith('"')) || (v.startsWith("'") && v.endsWith("'"))) v = v.slice(1, -1);
+    if (!process.env[k]) process.env[k] = v;
+  }
+} catch { /* .env not found — use defaults */ }
 
 const app = new Hono();
 
